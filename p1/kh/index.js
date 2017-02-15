@@ -2,7 +2,7 @@
  * Created by DHUser on 2017/2/14.
  */
 
-angular.module("myApp",["ui.router","myfooter","myheader","mynav"])
+angular.module("myApp",["ui.router","myfooter","myheader","mynav","mymenu"])
 .config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
         $stateProvider.state("kh",{

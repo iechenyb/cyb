@@ -1,10 +1,10 @@
 (function mynav() {
   var navController=function($scope,$rootScope,$state,$http,$location){
-    $http.get(basePath+"data/menu/fixMenu.json").success(
+   /* $http.get(basePath+"data/menu/fixMenu.json").success(
         function(data){
           $scope.menus= data;
         }
-    );
+    );*/
   };
   var url = basePath+'component/nav/index.html';
   var nav = {

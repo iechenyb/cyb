@@ -1,24 +1,16 @@
-<header role="banner" id="top" class="navbar navbar-static-top navbar-inverse">
-    <div class="container" >
-        <nav role="navigation" class="collapse navbar-collapse ">
-            <ul class="nav navbar-nav">
-                <li ui-sref-active="active">
-                    <a href="#doc-oc-demo1" data-am-offcanvas><i class="am-icon-github am-icon-fw"></i> </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</header>
+<div class="am-g">
+    <div class="am-u-sm-2">&nbsp;</div>
+    <div class="am-u-sm-8">   <a target="_self" href="../../#/home"><img src="../../img/logo.jpg" width="70rem" height="50rem"/>首页 </a></div>
+    <div class="am-u-sm-2">  <a href="#doc-oc-demo1" data-am-offcanvas><i class="am-icon-github am-icon-fw"></i> </a></div>
+</div>
 <!-- 链接触发器， href 属性为目标元素 ID -->
 <!-- 侧边栏内容 -->
 <div id="doc-oc-demo1" class="am-offcanvas">
     <div class="am-offcanvas-bar">
         <div class="am-offcanvas-content">
-            <p>
-                我不愿让你一个人 <br/>
-                承受这世界的残忍 <br/>
-                我不愿眼泪陪你到 永恒
-            </p>
+            <div ui-sref-active="active" ng-repeat="menu in menus">
+                <a href="../../{{menu.href}}">{{menu.name}}</a>
+            </div>
         </div>
     </div>
 </div>

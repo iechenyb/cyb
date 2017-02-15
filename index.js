@@ -21,4 +21,12 @@ myApp.config(['$stateProvider', '$urlRouterProvider',
         });
         $urlRouterProvider.otherwise("/exception/404");
     }
-]);
+]).controller("myCtrl",function($scope,$http){
+    console.log("index page");
+    $http.get("data/menu/fixMenu.json").success(
+        function(data){
+            $scope.menus= data;
+            console.log("index page"+ data);
+        }
+    );
+});

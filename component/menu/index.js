@@ -6,6 +6,11 @@
     $("#ybmenu").on("open.offcanvas.amui",function(){
          $("offcanvasbtn").hide();
     });
+    $http.get(basePath+"data/menu/fixMenu.json").success(
+        function(data){
+          $scope.menus= data;
+        }
+    );
   };
   var url = basePath+'component/menu/index.html';
   var menu = {

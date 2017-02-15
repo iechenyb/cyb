@@ -8,8 +8,22 @@
     <link rel="stylesheet" href="css/blacknav.css">
     <link rel="stylesheet" href="cdn/amazeui.min.css">
 </head>
-<body >
-<myheader></myheader>
+<body ng-controller="myCtrl">
+<div class="am-g">
+    <div class="am-u-sm-2">&nbsp;</div>
+    <div class="am-u-sm-8">   <a target="_self" href="#/home"><img src="img/logo.jpg" width="70rem" height="50rem"/>首页 </a></div>
+    <div class="am-u-sm-2">  <a href="#doc-oc-demo1" data-am-offcanvas><i class="am-icon-github am-icon-fw"></i> </a></div>
+</div>
+<div id="doc-oc-demo1" class="am-offcanvas">
+    <div class="am-offcanvas-bar">
+        <div class="am-offcanvas-content">
+            <div ui-sref-active="active" ng-repeat="menu in menus">
+                <a href="{{menu.href}}">{{menu.name}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<myheader></myheader>-->
 <header role="banner" id="top" class="navbar navbar-static-top navbar-inverse">
     <div class="container" >
         <nav role="navigation" class="collapse navbar-collapse ">

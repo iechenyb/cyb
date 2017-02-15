@@ -39,7 +39,13 @@ angular.module("myApp",["ui.router","myfooter","myheader","mynav","mymenu"])
     $scope.name="当前页面加载控制器";
     $http.get("../../data/menu/paramMenu.json").success(
         function(data){
+            $scope.navs= data;
+        }
+    );
+    $http.get("../..data/menu/fixMenu.json").success(
+        function(data){
             $scope.menus= data;
+            console.log("index page"+ data);
         }
     );
 });
