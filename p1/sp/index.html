@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>商品管理</title>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-wip/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../cdn/amazeui.min.css">
+    <link rel="stylesheet" href="../../css/blacknav.css">
+</head>
+<body  ng-controller="myCtrl">
+<header role="banner" id="top" class="navbar navbar-static-top navbar-inverse">
+    <div class="container" >
+        <nav role="navigation" class="collapse navbar-collapse ">
+            <ul class="nav navbar-nav">
+                <li ui-sref-active="active">
+                    <a target="_self" href="../../#/home">首页</a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="cloth" href>衣服</a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="food" href="">食品</a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="shoes" href="">鞋子</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div ui-view>
+    {{name}}
+</div>
+<myfooter></myfooter>
+</body>
+<script src="../../cdn/jquery.min.js"></script>
+<script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.min.js"></script>
+<script type="text/javascript" src="../../cdn/angular.min.js"></script><!--1.5.7-->
+<script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.3.0-beta.8/angular-animate.min.js"></script>
+<script type="text/javascript" src="../../cdn/angular-ui-router.min.js"></script><!--0.3.1-->
+<script type="text/javascript" src="../../js/pub.js"></script>
+<script type="text/javascript" src="../../component/footer/index.js"></script>
+<script type="text/javascript" src="../../component/header/index.js"></script>
+<script type="text/javascript" src="../../component/menu/index.js"></script>
+<script type="text/javascript" src="index.js"></script>
+</html>
