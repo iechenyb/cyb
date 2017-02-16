@@ -36,7 +36,7 @@ angular.module("myApp",["ui.router","myfooter","myheader","mymenu"])
         $urlRouterProvider.otherwise("/cloth");//默认进入页面
     }
 ]).controller("myCtrl",function($scope,$http){
-    $scope.name="当前页面加载控制器";
+    $scope.title="商品管理";
     $http.get("../../data/menu/paramMenu.json").success(
         function(data){
             $scope.menus= data;

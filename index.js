@@ -1,6 +1,8 @@
-var myApp = angular.module("myApp",["ui.router","myfooter","myheader","mymenu"]);
-myApp.config(['$stateProvider', '$urlRouterProvider',
-    function($stateProvider, $urlRouterProvider) {
+var pageSize=10;
+var myApp = angular.module("myApp",["ui.router","myfooter","myheader","mymenu","myInterceptor","mypage"]);
+myApp.config(['$stateProvider', '$urlRouterProvider','$httpProvider',
+    function($stateProvider, $urlRouterProvider,$httpProvider) {
+        $httpProvider.interceptors.push("myInterceptor");
         $stateProvider.state("home",{
             url:"/home",
             template:"<h1>待到来年九月八，我花开后百花杀。<br>冲天香阵透长安，满城尽带黄金甲。</h1>"
@@ -13,20 +15,75 @@ myApp.config(['$stateProvider', '$urlRouterProvider',
         }).state("inner",{
             url:"/inner",
             templateUrl:"p1/infor/index.html",
-            controller:function($scope,$http){
+            controller:function($scope,$http,$rootScope,$filter){
+                $scope.start=1;
+                $scope.end=pageSize*1;
+            $scope.refresh=function(){
+                $scope.result = $filter("filter")($scope.list,{name:$scope.q1,work:$scope.q2});
+                $scope.total = $scope.result.length;
+                $scope.pages = Math.ceil($scope.result.length / pageSize); //得到总页数
+                $scope.cur=1;
+                $scope.start=1;
+                $scope.end=pageSize*1;
+                $("#page").page({
+                    pages:$scope.pages, //页数
+                    curr: $scope.cur, //当前页
+                    type: 'default', //主题
+                    groups: 5, //连续显示分页数
+                    prev: '<', //若不显示，设置false即可
+                    next: '>', //若不显示，设置false即可
+                    first: "首页",
+                    last: "尾页", //false则不显示
+                    jump: function(context, first) {
+                        if(first) return;
+                        console.log('当前第：' + context.option.curr + "页");
+                        $scope.$apply(function () {
+                            $scope.cur = context.option.curr;
+                            $scope.start = ($scope.cur-1)*pageSize+1;
+                            $scope.end = $scope.cur*pageSize;
+                        });
+                    }
+                });
+                //$scope.$apply();
+            };
             $http.get("data/infor/list.json").success(function(data){
-               $scope.list = data; 
+                $scope.result = $scope.list = data;
+                $scope.total =  $scope.result.length;
+                $scope.pages = Math.ceil($scope.list.length / pageSize); //得到总页数
+                page.cur=1;
+                $("#page").page({
+                    pages:$scope.pages, //页数
+                    curr: page.cur, //当前页
+                    type: 'default', //主题
+                    groups: 5, //连续显示分页数
+                    prev: '<', //若不显示，设置false即可
+                    next: '>', //若不显示，设置false即可
+                    first: "首页",
+                    last: "尾页", //false则不显示
+                    jump: function(context, first) {
+                        if (first)return;
+                        console.log('当前第：' + context.option.curr + "页");
+                       /* $scope.cur = context.option.curr;
+                        $scope.start = ($scope.cur-1)*pageSize+1;
+                        $scope.end = $scope.cur*pageSize;*/
+                        $scope.$apply(function () {
+                            $scope.cur = context.option.curr;
+                            $scope.start = ($scope.cur-1)*pageSize+1;
+                            $scope.end = $scope.cur*pageSize;
+                        });
+                        //$scope.$apply();
+                    }
+                });
             });
             }
         });
         $urlRouterProvider.otherwise("/exception/404");
     }
 ]).controller("myCtrl",function($scope,$http){
-    console.log("index page");
+    $scope.title="首页";
     $http.get("data/menu/fixMenu.json").success(
         function(data){
             $scope.menus= data;
-            console.log("index page"+ data);
         }
     );
 });

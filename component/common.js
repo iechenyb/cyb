@@ -3,44 +3,79 @@ var jsonPD = function (data) {
   else alert(data.msg);
   return false;
 }
-function sleep(numberMillis) {
-  var now = new Date();
-  var exitTime = now.getTime() + numberMillis;
-  while (true) {
-    now = new Date();
-    if (now.getTime() > exitTime)
-      return;
-  }
+var reEscapedHtml = /(&amp;|&lt;|&gt;|&quot;|&#39;)/g;
+var htmlUnescapes = {
+  '&amp;': '&',
+  '&lt;': '<',
+  '&gt;': '>',
+  '&quot;': '"',
+  '&#39;': "'"
+};
+function unescapeHtmlChar(match) {
+  return htmlUnescapes[match];
 }
-var myInterceptor = function ($rootScope) {
-  var tipWindow = '<div id="mask-loading" class="mask-loading" ng-if="loading" style="background-color: rgba(0, 0, 0, 0.17);">'
-      +'<div class="loading-icon"></div>'
-      +'</div>';
-  $("body").append(tipWindow);
-  var timestampMarker = {
-    request: function (config) {
-      $rootScope.loading = true;
-      //sleep(0);
-      /*config.st=setTimeout(function () {
-      },500);*/
-      return config;
-    },
-    response: function (response) {
-      //clearTimeout(response.config.st);
-      console.log("response");
-      if(response.status==200){
-        $rootScope.loading = false;
-      }else{
-        $rootScope.loading = false;
+function html_decode(string) {
+  return string == null ? '' : String(string).replace(reEscapedHtml, unescapeHtmlChar);
+}
+angular.module('myInterceptor', [])
+    .factory('myInterceptor', ["$q", function ($q) {
+      var ModalLoading = '<div class="am-modal am-modal-loading am-modal-no-btn" tabindex="-1" id="http-modal-loading">' +
+          '<div class="am-modal-dialog">' +
+          '<div class="am-modal-hd">正在载入...</div>' +
+          '<div class="am-modal-bd">' +
+          '<span class="am-icon-spinner am-icon-spin"></span>' +
+          '</div>' +
+          '</div>' +
+          '</div>';
+      $("body").append(ModalLoading);
+      var timestampMarker = {
+        request: function (config) {
+          config.st = setTimeout("$('#http-modal-loading').modal('open')", 1000);
+          return config;
+        },
+        response: function (res) {
+          clearTimeout(res.config.st);
+          $('#http-modal-loading').modal('close');
+          return res;
+        },
+        responseError: function (err) {
+          clearTimeout(err.config.st);
+          $('#http-modal-loading').modal('close');
+          alert(err.data);
+          return $q.reject(err);
+        }
+      };
+      return timestampMarker;
+    }]);
+angular.module('repeatFinish', [])
+    .directive('onFinishRender', function ($timeout) {
+      return {
+        restrict: 'A',
+        link: function (scope, element, attr) {
+          if (scope.$last === true) {
+            $timeout(function () {
+              scope.$emit(attr.onFinishRender);
+            });
+          }
+        }
       }
-      return response;
-    },
-    responseError:function(err){
-      console.log("[Incetper]请求结束，处理异常！错误代码："+err.status+","+err.statusText);
-      $rootScope.loading = false;
-    }
-  };
-  return timestampMarker;
+    });
+angular.module('getTitle', [])
+    .directive('getTitle', function () {
+      return {
+        restrict: 'A',
+        template: function (element, attr) {
+          var names = attr.getTitle.split(".");
+          var value = dh_links;
+          for (var i = 0; i < names.length; i++) {
+            value = value[names[i]]
+          }
+          value = value.title;
+          return value;
+        }
+      }
+    });
+
+function goto(url) {
+  window.location.href = url;
 }
-angular.module('myInterceptor',[])
-  .factory('myInterceptor', ["$rootScope", myInterceptor]);

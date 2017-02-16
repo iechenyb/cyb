@@ -3,6 +3,7 @@
  */
 var app = angular.module('myApp', ["ui.router","mynav","mymenu"]);
 app.controller('myCtrl', function($scope) {
+    $scope.title="日历";
     $scope.msg="hahha";
     $scope.yy="2017";
     $scope.mm="12";

@@ -36,7 +36,7 @@ angular.module("myApp",["ui.router","myfooter","myheader","mynav","mymenu"])
         $urlRouterProvider.otherwise("/index/vip");
     }
 ]).controller("myCtrl",function($scope,$http){
-    $scope.name="当前页面加载控制器";
+    $scope.title="登录管理";
     $http.get("../../data/menu/paramMenu.json").success(
         function(data){
             $scope.menus= data;

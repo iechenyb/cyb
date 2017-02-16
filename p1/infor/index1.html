@@ -1,0 +1,36 @@
+<!--<div class="am-g am-g-fixed">
+    <div class="am-u-sm-4">姓名</div>
+    <div class="am-u-sm-4">工作</div>
+    <div class="am-u-sm-4">年龄</div>
+</div>
+<div class="am-g am-g-fixed" ng-repeat="vo in list">
+    <div class="am-u-sm-4">{{vo.name}}</div>
+    <div class="am-u-sm-4">{{vo.work}}</div>
+    <div class="am-u-sm-4">{{vo.age}}</div>
+</div>-->
+<style>
+    td{
+         text-align: center
+     }
+    th{
+        text-align: center
+    }
+</style>
+<table class="am-table am-table-bordered" align="center">
+    <thead>
+    <tr style="background-color: #0bffac">
+        <th width="5%" align="center">序号</th>
+        <th align="center" style="">姓名</th>
+        <th>工作</th>
+        <th>年龄</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="vo in list" style="background-color: #fefffe" ng-show="$index+1>1&&$index+1<=10">
+        <td>{{$index+1}}</td>
+        <td>{{vo.name}}</td>
+        <td>{{vo.work}}</td>
+        <td>{{vo.age}}</td>
+    </tr>
+    </tbody>
+</table>
