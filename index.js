@@ -5,10 +5,10 @@ myApp.config(['$stateProvider', '$urlRouterProvider','$httpProvider',
         $httpProvider.interceptors.push("myInterceptor");
         $stateProvider.state("home",{
             url:"/home",
-            template:"<h1>待到来年九月八，我花开后百花杀。<br>冲天香阵透长安，满城尽带黄金甲。</h1>"
+            templateUrl:"p1/gsjj.html",
         }).state("about",{
             url:"/about",
-            template:"<h1>三十年功尘与土，八千里路云和月。<br>莫等闲，白了少年头，空悲切。</h1>"
+            templateUrl:"/p1/gsjj.html"
         }).state("contacts",{
             url:"/contacts",
             template:"<h1>靖康耻犹未雪，臣子恨何时灭，<br>驾长车踏破贺兰山缺。壮士饥餐胡虏肉，<br>笑谈渴饮匈奴血。待从头，收拾旧山河，朝天阙。</h1>"
@@ -44,7 +44,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider','$httpProvider',
             });
             }
         });
-        $urlRouterProvider.otherwise("/exception/404");
+        $urlRouterProvider.otherwise("inner");
     }
 ]).controller("myCtrl",function($scope,$http){
     $scope.title="首页";

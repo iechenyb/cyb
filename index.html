@@ -12,8 +12,9 @@
 <body ng-controller="myCtrl">
 <div class="am-g">
     <div class="am-u-sm-1">&nbsp;</div>
-    <div class="am-u-sm-9">   <a target="_self" href="#/home"><img src="img/logo.png" height="50rem"/></a></div>
-    <div class="am-u-sm-2">  <a href="#doc-oc-demo1" data-am-offcanvas><i class="am-icon-reorder am-icon-sm" id="offcanvasbtn" data-am-offcanvas="{target: '#id'}" style="display: block;margin:20px;"></i> </a></div>
+    <div class="am-u-sm-9">   <a target="_self" href="#/home" style="display: block;margin:20px;"><img src="img/logo.png" height="50rem"/></a></div>
+    <div class="am-u-sm-2">  <a href="#doc-oc-demo1" data-am-offcanvas>
+        <i class="am-icon-reorder am-icon-sm" id="offcanvasbtn" data-am-offcanvas="{target: '#id'}" style="display: block;margin:20px;"></i> </a></div>
 </div>
 <div id="doc-oc-demo1" class="am-offcanvas">
     <div class="am-offcanvas-bar">
@@ -30,9 +31,6 @@
         <nav role="navigation" class="collapse navbar-collapse ">
             <ul class="nav navbar-nav">
                 <li ui-sref-active="active">
-                    <a href ui-sref="inner">职工信息</a>
-                </li>
-                <li ui-sref-active="active">
                     <a href ui-sref="home">公司简介</a>
                 </li>
                 <li ui-sref-active="active">
@@ -40,6 +38,9 @@
                 </li>
                 <li ui-sref-active="active">
                     <a href ui-sref="contacts">联系我们</a>
+                </li>
+                <li ui-sref-active="active">
+                    <a href ui-sref="inner">职工信息</a>
                 </li>
             </ul>
         </nav>

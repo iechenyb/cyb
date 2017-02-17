@@ -2,7 +2,7 @@
  * Created by DHUser on 2017/2/14.
  */
 
-angular.module("myApp",["ui.router","myfooter","myheader","mymenu"])
+angular.module("myApp",["ui.router","myfooter","myheader","mynav","mymenu"])
 .config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
         $stateProvider.state("sp",{
@@ -36,10 +36,16 @@ angular.module("myApp",["ui.router","myfooter","myheader","mymenu"])
         $urlRouterProvider.otherwise("/cloth");//默认进入页面
     }
 ]).controller("myCtrl",function($scope,$http){
-    $scope.title="商品管理";
+    $scope.title="员工管理";
     $http.get("../../data/menu/paramMenu.json").success(
         function(data){
+            $scope.navs= data;
+        }
+    );
+    $http.get("../..data/menu/fixMenu.json").success(
+        function(data){
             $scope.menus= data;
+            console.log("index page"+ data);
         }
     );
 });

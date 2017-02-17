@@ -9,23 +9,8 @@
 </head>
 <body  ng-controller="myCtrl">
 <mymenu></mymenu>
-<header role="banner" id="top" class="navbar navbar-static-top navbar-inverse">
-    <div class="container" >
-        <nav role="navigation" class="collapse navbar-collapse ">
-            <ul class="nav navbar-nav">
-                <li ui-sref-active="active">
-                    <a ui-sref="cloth" href>衣服</a>
-                </li>
-                <li ui-sref-active="active">
-                    <a ui-sref="food" href="">食品</a>
-                </li>
-                <li ui-sref-active="active">
-                    <a ui-sref="shoes" href="">鞋子</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</header>
+<mynav links="navs"></mynav>
+
 <div ui-view>
     {{name}}
 </div>
@@ -39,6 +24,7 @@
 <script type="text/javascript" src="../../js/pub.js"></script>
 <script type="text/javascript" src="../../component/footer/index.js"></script>
 <script type="text/javascript" src="../../component/header/index.js"></script>
+<script type="text/javascript" src="../../component/nav/index.js"></script>
 <script type="text/javascript" src="../../component/menu/index.js"></script>
 <script type="text/javascript" src="index.js"></script>
 </html>

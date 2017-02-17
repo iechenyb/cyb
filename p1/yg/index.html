@@ -6,14 +6,34 @@
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-wip/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../cdn/amazeui.min.css">
     <link rel="stylesheet" href="../../css/blacknav.css">
+    <link href="../../cdn/jquery.webui-popover.min.css" rel="stylesheet">
 </head>
 <body  ng-controller="myCtrl">
 <mymenu></mymenu>
-<mynav links="navs"></mynav>
-
+<header role="banner" id="top" class="navbar navbar-static-top navbar-inverse">
+    <div class="container" >
+        <nav role="navigation" class="collapse navbar-collapse ">
+            <ul class="nav navbar-nav">
+                <li ui-sref-active="active">
+                    <a ui-sref="ld" href>领导管理</a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="pt" href="">普通员工</a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="kh" href="">客户信息</a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="#" href="">固定菜单展示</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
 <div ui-view>
     {{name}}
 </div>
+<!--<a class="pop">弹出1</a><a class="pop">弹出2</a><a class="pop">弹出3</a>-->
 <myfooter></myfooter>
 </body>
 <script src="../../cdn/jquery.min.js"></script>
@@ -24,7 +44,8 @@
 <script type="text/javascript" src="../../js/pub.js"></script>
 <script type="text/javascript" src="../../component/footer/index.js"></script>
 <script type="text/javascript" src="../../component/header/index.js"></script>
-<script type="text/javascript" src="../../component/nav/index.js"></script>
 <script type="text/javascript" src="../../component/menu/index.js"></script>
+<script type="text/javascript" src="../../component/common.js"></script>
+<script src="../../cdn/jquery.webui-popover.min.js"></script>
 <script type="text/javascript" src="index.js"></script>
 </html>

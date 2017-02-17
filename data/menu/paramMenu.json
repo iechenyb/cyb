@@ -1,5 +1,6 @@
 [
-  {"uisref":"cloth","name":"会员"},
-  {"uisref":"food","name":"游客"},
-  {"uisref":"shoes","name":"管理员"}
+  {"uisref":"cloth","name":"衣服"},
+  {"uisref":"food","name":"食品"},
+  {"uisref":"shoes","name":"鞋帽"},
+  {"uisref":"","name":"动态菜单展示"}
 ]

@@ -30,7 +30,7 @@ angular.module('myInterceptor', [])
       $("body").append(ModalLoading);
       var timestampMarker = {
         request: function (config) {
-          config.st = setTimeout("$('#http-modal-loading').modal('open')", 1000);
+          config.st = setTimeout("$('#http-modal-loading').modal('open')", 1);
           return config;
         },
         response: function (res) {
@@ -41,7 +41,13 @@ angular.module('myInterceptor', [])
         responseError: function (err) {
           clearTimeout(err.config.st);
           $('#http-modal-loading').modal('close');
-          alert(err.data);
+            if(err.status==404){
+                alert('页面没有发现或者已经转移到其他服务器！');
+            }else if(err.status==500){
+                alert('服务器故障，请联系管理员！');
+            }else{
+                alert("请求失败，错误原因["+err.statusText+"]");
+            }
           return $q.reject(err);
         }
       };
