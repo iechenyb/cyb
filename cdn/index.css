@@ -1,0 +1,38 @@
+img {
+    webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: middle;
+    border: 0;
+}
+.webui-popover {
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid #fff;
+}
+
+.webui-arrow {
+    display: none !important;
+}
+
+.webui-popover .webui-popover-content {
+    color: #FFF
+}
+
+/*.webui-popover-dh-wx {
+    background-color: rgba(0, 0, 0, 0);
+    border: 0px solid #fff;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0);
+}*/
+
+.hi-icon {
+    width: 80px;
+    height: 80px;
+}
+
+.icon-youjian:before{
+    font-size: 40px;
+}
+
+.hi-icon:before {
+    line-height: 80px;
+}

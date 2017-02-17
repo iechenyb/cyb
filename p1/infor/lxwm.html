@@ -1,0 +1,67 @@
+<style>
+    .dh-last h1 {
+        margin: 0;
+        padding: 0;
+        color: white;
+        position: absolute;
+        left: 15%;
+        top: 15%;
+        font-size: 3rem;
+    }
+    .minheight{
+       height: 400px;
+        width:100%;
+        background-color: #0b76ac;
+    }
+    .blank{
+        height: 50px;
+    }
+    .top100{
+           margin-top: 90px;
+       }
+</style>
+<div class="blank">&nbsp;</div>
+<div class="minheight">
+    <div class="am-u-sm-2 top100"><p class="hi-icon icon-dianhua left" data-placement="bottom">电话<img src="img/logo.jpg" width="80px" height="80px"/></p></div>
+    <div class="am-u-sm-2 top100"><a class="hi-icon icon-icon052 left" href="" data-placement="bottom">咨询<img src="img/logo.jpg" width="80px" height="80px"/></a></div>
+    <div class="am-u-sm-2 top100"><p class="hi-icon icon-weixin-copy" data-placement="bottom">微信<img src="img/logo.jpg" width="80px" height="80px"/></p></div>
+    <div class="am-u-sm-2 top100"><a class="hi-icon icon-iconfontweibowukuang" href="#" data-placement="bottom">微博<img src="img/logo.jpg" width="80px" height="80px"/></a></div>
+    <div class="am-u-sm-2 top100"><a class="hi-icon icon-youjian" data-placement="bottom">邮箱<img src="img/logo.jpg" width="80px" height="80px"/></a></div>
+    <div class="am-u-sm-2 top100"><a class="hi-icon icon-youjian" data-placement="bottom">邮箱<img src="img/logo.jpg" width="80px" height="80px"/></a></div>
+</div>
+<div class="blank">&nbsp;</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#nav-icon2').click(function () {
+            $(this).toggleClass('open');
+        });
+        $('.icon-dianhua').webuiPopover({
+            content: '<p style="text-align: center;margin: 0;">全天工作<br>哈哈哈哈哈哈哈</p>',
+            trigger: 'hover',
+            animation: 'pop'
+        });
+        $('.icon-weixin-copy').webuiPopover({
+            content: '<img src="img/ewm.jpg" style="height: 180px;width: 180px">',
+            style: 'dh-wx',
+            width: 215,
+            height: 210,
+            trigger: 'hover',
+            animation: 'pop'
+        });
+        $('.icon-iconfontweibowukuang').webuiPopover({
+            content: '微博',
+            trigger: 'hover',
+            animation: 'pop'
+        });
+        $('.icon-icon052').webuiPopover({
+            content: '你想问我点啥呢？',
+            trigger: 'hover',
+            animation: 'pop'
+        });
+        $('.icon-youjian').webuiPopover({
+            content: '<span>www.github.com/iechenyb</span>',
+            trigger: 'hover',
+            animation: 'pop'
+        });
+    });
+</script>

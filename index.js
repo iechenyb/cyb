@@ -5,13 +5,13 @@ myApp.config(['$stateProvider', '$urlRouterProvider','$httpProvider',
         $httpProvider.interceptors.push("myInterceptor");
         $stateProvider.state("home",{
             url:"/index",
-            templateUrl:"p1/gsjj.html",
+            templateUrl:"p1/infor/gsjj.html",
         }).state("about",{
             url:"/about",
-            templateUrl:"/p1/gsjj.html"
+            templateUrl:"p1/infor/gsjj.html"
         }).state("contacts",{
             url:"/contacts",
-            template:"<h1>靖康耻犹未雪，臣子恨何时灭，<br>驾长车踏破贺兰山缺。壮士饥餐胡虏肉，<br>笑谈渴饮匈奴血。待从头，收拾旧山河，朝天阙。</h1>"
+            templateUrl:"p1/infor/lxwm.html"
         }).state("inner",{
             url:"/inner",
             templateUrl:"p1/infor/index.html",
