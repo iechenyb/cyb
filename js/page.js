@@ -7,6 +7,9 @@ var NoRecords;
 function renderSpilter(list,$scope){
     onlyOnePage=false;
     NoRecords = false;
+    if(list==undefined||list=='undefined'){
+        list=[];//watch时会执行
+    }
     $scope.total =  list.length;
     $scope.pages = Math.ceil(list.length / pageSize); //得到总页数
     if($scope.pages<=1){
