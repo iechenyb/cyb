@@ -1,3 +1,8 @@
+/**
+ * 对所有的请求的返回的数据格式做统一处理！
+ * @param data
+ * @returns {boolean}
+ */
 var jsonPD = function (data) {
   if (data.code == 0)return true;
   else alert(data.msg);
@@ -17,6 +22,22 @@ function unescapeHtmlChar(match) {
 function html_decode(string) {
   return string == null ? '' : String(string).replace(reEscapedHtml, unescapeHtmlChar);
 }
+//将hmtl内容直接转换成模板内容加载
+angular.module('html', [], function($compileProvider) {
+    $compileProvider.directive('compile', function($compile) {
+        return function(scope, element, attrs) {
+            scope.$watch(
+                function(scope) {
+                    return scope.$eval(attrs.compile);
+                },
+                function(value) {
+                    element.html(value);
+                    $compile(element.contents())(scope);
+                }
+            );
+        };
+    });
+});
 angular.module('myInterceptor', [])
     .factory('myInterceptor', ["$q", function ($q) {
       var ModalLoading = '<div class="am-modal am-modal-loading am-modal-no-btn" tabindex="-1" id="http-modal-loading">' +

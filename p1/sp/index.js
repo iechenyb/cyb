@@ -2,7 +2,7 @@
  * Created by DHUser on 2017/2/14.
  */
 
-angular.module("myApp",["ui.router","myfooter","myheader","mynav","mymenu"])
+angular.module("myApp",["ui.router","myfooter","myheader","mynav","mymenu","html"])
 .config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
         $stateProvider.state("sp",{
@@ -14,6 +14,9 @@ angular.module("myApp",["ui.router","myfooter","myheader","mynav","mymenu"])
             controller:function($scope,$http) {
                 $http.get("../../data/sp/colth.json").success(function(data){
                     $scope.list = data;
+                });
+                $http.get("../../data/sp/html.json").success(function(data){
+                    $scope.html = data.data;
                 });
             },controllerAs:'vipC'
         }).state("food",{
@@ -40,12 +43,6 @@ angular.module("myApp",["ui.router","myfooter","myheader","mynav","mymenu"])
     $http.get("../../data/menu/paramMenu.json").success(
         function(data){
             $scope.navs= data;
-        }
-    );
-    $http.get("../..data/menu/fixMenu.json").success(
-        function(data){
-            $scope.menus= data;
-            console.log("index page"+ data);
         }
     );
 });
