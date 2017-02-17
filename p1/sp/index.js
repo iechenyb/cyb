@@ -12,10 +12,10 @@ angular.module("myApp",["ui.router","myfooter","myheader","mynav","mymenu","html
             url:"/cloth",
             templateUrl:"cloth.html",
             controller:function($scope,$http) {
-                $http.get("../../data/sp/colth.json").success(function(data){
+                $http.get("../../data/sp/colth.json", {cache: true}).success(function(data){
                     $scope.list = data;
                 });
-                $http.get("../../data/sp/html.json").success(function(data){
+                $http.get("../../data/sp/html.json", {cache: true}).success(function(data){
                     $scope.html = data.data;
                 });
             },controllerAs:'vipC'
@@ -23,7 +23,7 @@ angular.module("myApp",["ui.router","myfooter","myheader","mynav","mymenu","html
             url:"/food",
             templateUrl:"food.html",
             controller:function($scope,$http) {
-                $http.get("../../data/sp/food.json").success(function(data){
+                $http.get("../../data/sp/food.json", {cache: true}).success(function(data){
                     $scope.list = data;
                 });
             },controllerAs:'CC'
@@ -31,7 +31,7 @@ angular.module("myApp",["ui.router","myfooter","myheader","mynav","mymenu","html
             url:"/shoes",
             templateUrl:"shoes.html",
             controller:function($scope,$http) {
-                $http.get("../../data/sp/shoes.json").success(function(data){
+                $http.get("../../data/sp/shoes.json", {cache: true}).success(function(data){
                     $scope.list = data;
                 });
             },controllerAs:'adminC'
@@ -40,7 +40,7 @@ angular.module("myApp",["ui.router","myfooter","myheader","mynav","mymenu","html
     }
 ]).controller("myCtrl",function($scope,$http){
     $scope.title="员工管理";
-    $http.get("../../data/menu/paramMenu.json").success(
+    $http.get("../../data/menu/paramMenu.json", {cache: true}).success(
         function(data){
             $scope.navs= data;
         }

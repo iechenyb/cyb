@@ -26,7 +26,7 @@ angular.module("myApp",["ui.router","myfooter","myheader","mymenu","repeatFinish
                     $(".hover").find("div").css({"top": t,"left":200});
                     console.log("on event!")
                 });
-                $http.get("../../data/sp/ry.json").success(function(data){
+                $http.get("../../data/sp/ry.json", {cache: true}).success(function(data){
                     $scope.list = data;
                     var settings = {
                         trigger:'hover',
@@ -47,7 +47,7 @@ angular.module("myApp",["ui.router","myfooter","myheader","mymenu","repeatFinish
             url:"/pt",
             templateUrl:"pt.html",
             controller:function($scope,$http) {
-                $http.get("../../data/sp/food.json").success(function(data){
+                $http.get("../../data/sp/food.json", {cache: true}).success(function(data){
                     $scope.list = data;
                 });
             },controllerAs:'CC'
@@ -55,7 +55,7 @@ angular.module("myApp",["ui.router","myfooter","myheader","mymenu","repeatFinish
             url:"/kh",
             templateUrl:"kh.html",
             controller:function($scope,$http) {
-                $http.get("../../data/sp/shoes.json").success(function(data){
+                $http.get("../../data/sp/shoes.json", {cache: true}).success(function(data){
                     $scope.list = data;
                 });
             },controllerAs:'adminC'
@@ -76,7 +76,7 @@ angular.module("myApp",["ui.router","myfooter","myheader","mymenu","repeatFinish
         padding:false
     };
     $('a.pop').webuiPopover('destroy').webuiPopover(settings);
-    $http.get("../../data/menu/paramMenu.json").success(
+    $http.get("../../data/menu/paramMenu.json", {cache: true}).success(
         function(data){
             $scope.menus= data;
         }

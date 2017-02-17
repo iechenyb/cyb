@@ -38,7 +38,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider','$httpProvider',
                     $scope.result = $filter("filter")($scope.list,{name:$scope.q1,work:$scope.q2});
                     renderSpilter($scope.result,$scope);
                 };
-            $http.get("data/infor/list.json").success(function(data){
+            $http.get("data/infor/list.json", {cache: true}).success(function(data){
                 $scope.result = $scope.list = data;
                 renderSpilter(data,$scope);
             });
@@ -48,7 +48,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider','$httpProvider',
     }
 ]).controller("myCtrl",function($scope,$http){
     $scope.title="首页";
-    $http.get("data/menu/fixMenu.json").success(
+    $http.get("data/menu/fixMenu.json", {cache: true}).success(
         function(data){
             $scope.menus= data;
         }
