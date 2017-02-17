@@ -2,30 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17459e27-f49d-4ac8-910e-82701e039c06" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/ewm.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/sp/ry.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/p1/gsjj.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/p1/sp/defualt.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/p1/sp/kh.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/p1/sp/pt.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/p1/sp/shoes.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/p1/yg/cloth.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/p1/yg/defualt.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/p1/yg/food.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/p1/yg/shoes.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/p1/kh/admin.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/p1/kh/customer.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/p1/kh/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/p1/kh/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/p1/kh/vip.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/p1/sp/cloth.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/p1/sp/food.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdn/jquery.webui-popover.min.css" afterPath="$PROJECT_DIR$/cdn/jquery.webui-popover.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdn/jquery.webui-popover.min.js" afterPath="$PROJECT_DIR$/cdn/jquery.webui-popover.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/component/common.js" afterPath="$PROJECT_DIR$/component/common.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/menu/fixMenu.json" afterPath="$PROJECT_DIR$/data/menu/fixMenu.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/menu/paramMenu.json" afterPath="$PROJECT_DIR$/data/menu/paramMenu.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/sp/ry.json" afterPath="$PROJECT_DIR$/data/sp/ry.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/p1/rl/index.html" afterPath="$PROJECT_DIR$/p1/rl/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/p1/sp/index.html" afterPath="$PROJECT_DIR$/p1/sp/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/p1/sp/index.js" afterPath="$PROJECT_DIR$/p1/sp/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/p1/yg/index.html" afterPath="$PROJECT_DIR$/p1/yg/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/p1/yg/index.js" afterPath="$PROJECT_DIR$/p1/yg/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/p1/sp/shoes.html" afterPath="$PROJECT_DIR$/p1/sp/shoes.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/p1/zc/index.html" afterPath="$PROJECT_DIR$/p1/zc/index.html" />
     </list>
     <ignored path="cyb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,7 +34,40 @@
     <favorites_list name="cyb" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/p1/zc/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vip.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/p1/dl/vip.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="10" column="66" selection-start-line="10" selection-start-column="66" selection-end-line="10" selection-end-column="66" />
+              <folding>
+                <element signature="n#style#0;n#input#0;n#td#1;n#tr#2;n#table#0;n#fieldset#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -62,8 +84,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/p1/infor/index.js" />
-        <option value="$PROJECT_DIR$/exception/404.html" />
         <option value="$PROJECT_DIR$/p1/mb/index.html" />
         <option value="$PROJECT_DIR$/component/footer/index.html" />
         <option value="$PROJECT_DIR$/js/pub.js" />
@@ -89,7 +109,6 @@
         <option value="$PROJECT_DIR$/p1/zc/index.js" />
         <option value="$PROJECT_DIR$/p1/rl/rl.js" />
         <option value="$PROJECT_DIR$/p1/kh/index.js" />
-        <option value="$PROJECT_DIR$/p1/zc/index.html" />
         <option value="$PROJECT_DIR$/p1/yg/cloth.html" />
         <option value="$PROJECT_DIR$/p1/yg/defualt.html" />
         <option value="$PROJECT_DIR$/p1/yg/food.html" />
@@ -103,16 +122,19 @@
         <option value="$PROJECT_DIR$/p1/infor/index.html" />
         <option value="$PROJECT_DIR$/p1/gsjj.html" />
         <option value="$PROJECT_DIR$/component/common.js" />
-        <option value="$PROJECT_DIR$/data/sp/ry.json" />
         <option value="$PROJECT_DIR$/p1/sp/cloth.html" />
         <option value="$PROJECT_DIR$/p1/sp/index.html" />
-        <option value="$PROJECT_DIR$/index.js" />
-        <option value="$PROJECT_DIR$/data/menu/fixMenu.json" />
         <option value="$PROJECT_DIR$/p1/sp/index.js" />
         <option value="$PROJECT_DIR$/data/menu/paramMenu.json" />
         <option value="$PROJECT_DIR$/p1/yg/index.html" />
         <option value="$PROJECT_DIR$/p1/rl/index.html" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/data/sp/ry.json" />
+        <option value="$PROJECT_DIR$/data/menu/fixMenu.json" />
+        <option value="$PROJECT_DIR$/p1/dl/index.js" />
+        <option value="$PROJECT_DIR$/p1/dl/vip.html" />
+        <option value="$PROJECT_DIR$/p1/zc/index.html" />
+        <option value="$PROJECT_DIR$/index.js" />
       </list>
     </option>
   </component>
@@ -200,7 +222,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="yg" />
+              <option name="myItemId" value="zc" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -218,39 +240,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cyb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cyb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="p1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cyb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cyb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="dl" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -281,10 +271,6 @@
               <option name="myItemId" value="data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -301,34 +287,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="menu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cyb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cyb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cyb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cyb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="component" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -434,7 +392,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1487121390073</updated>
-      <workItem from="1487121391214" duration="54390000" />
+      <workItem from="1487121391214" duration="55141000" />
     </task>
     <task id="LOCAL-00001" summary="sfd">
       <created>1487236152427</created>
@@ -464,17 +422,24 @@
       <option name="project" value="LOCAL" />
       <updated>1487293294505</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="sfd">
+      <created>1487300895489</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1487300895489</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54390000" />
+    <option name="totallyTimeSpent" value="55141000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28279266" sideWeight="0.5" order="-1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14950635" sideWeight="0.5" order="-1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.50282085" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19086021" sideWeight="0.49717912" order="-1" side_tool="false" content_ui="tabs" />
@@ -506,35 +471,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/component/footer/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/component/footer/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="25" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/pub.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#42#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/component/header/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -643,14 +579,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/sp/list.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/sp/shoes.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -687,16 +615,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="370">
           <caret line="46" column="43" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#42#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/p1/zc/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -818,14 +736,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/sp/ry.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/component/common.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -874,14 +784,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="45" column="11" selection-start-line="45" selection-start-column="11" selection-end-line="45" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/p1/sp/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -902,14 +804,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/menu/fixMenu.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -943,6 +837,72 @@
             <element signature="e#556#595#0" expanded="false" />
             <element signature="e#621#750#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/sp/list.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/sp/ry.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/menu/fixMenu.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/p1/dl/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/p1/dl/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/p1/dl/vip.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="66" selection-start-line="10" selection-start-column="66" selection-end-line="10" selection-end-column="66" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#2;n#table#0;n#fieldset#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/p1/zc/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
+          <folding />
         </state>
       </provider>
     </entry>

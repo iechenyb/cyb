@@ -4,7 +4,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider','$httpProvider',
     function($stateProvider, $urlRouterProvider,$httpProvider) {
         $httpProvider.interceptors.push("myInterceptor");
         $stateProvider.state("home",{
-            url:"/home",
+            url:"/index",
             templateUrl:"p1/gsjj.html",
         }).state("about",{
             url:"/about",
