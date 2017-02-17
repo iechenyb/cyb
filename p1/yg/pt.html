@@ -1,0 +1,26 @@
+<style>
+    td{
+        text-align: center
+    }
+    th{
+        text-align: center
+    }
+</style>
+<table class="am-table am-table-bordered" align="center">
+    <thead>
+    <tr style="background-color: #0bffac">
+        <th width="5%" align="center">序号</th>
+        <th>名称</th>
+        <th>创建人</th>
+        <th>数量</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="vo in list" style="background-color: #fefffe">
+        <td>{{$index+1}}</td>
+        <td>{{vo.name}}</td>
+        <td>{{vo.work}}</td>
+        <td>{{vo.age}}</td>
+    </tr>
+    </tbody>
+</table>
