@@ -18,6 +18,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider','$httpProvider',
             controller:function($scope,$http,$rootScope,$filter){
                 $scope.del=function (record) {
                     $scope.list.splice($scope.list.indexOf(record),1);
+                    $scope.result.splice($scope.result.indexOf(record),1);
                 };
                 $scope.$watch("res",function () {
                     $scope.cur=1;
