@@ -27,6 +27,7 @@
         </th>
         <th>工作</th>
         <th>年龄</th>
+        <th>操作</th>
     </tr>
     </thead>
     <tbody>
@@ -35,6 +36,7 @@
         <td>{{vo.name}}</td>
         <td>{{vo.work}}</td>
         <td>{{vo.age}}</td>
+        <td><a href="javascript:void(0)" ng-click="del(vo)">删除</a></td>
     </tr>
     </tbody>
 </table>
