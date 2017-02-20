@@ -6,6 +6,13 @@ var kqsp = function () {
         {
             title: '学习视频1',
             list: [{
+                title: "wvm视频播放测试",
+                data: "2016-10-27 11:37",
+                img: "http://www.kuaiqi.net/data/attachment/portal/201610/27/113644y0pca9uawdsw1r9r.jpg",
+                description: "查看结算单，查看报告，查看日志文件，常见问题...",
+                url: "wmv.wmv"
+
+            },{
                 title: "快期V2第五节:结算单、日志及常见问题",
                 data: "2016-10-27 11:37",
                 img: "http://www.kuaiqi.net/data/attachment/portal/201610/27/113644y0pca9uawdsw1r9r.jpg",

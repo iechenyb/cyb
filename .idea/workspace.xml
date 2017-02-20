@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17459e27-f49d-4ac8-910e-82701e039c06" name="Default" comment="sfd">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/icon.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/p1/kqsp/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/p1/kqsp/kqsp.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/p1/kqsp/kqsp.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/p1/kqsp/list.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/p1/kqsp/sp.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/p1/kqsp/wmv.wmv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/p1/ht/1.html" afterPath="$PROJECT_DIR$/p1/ht/1.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/p1/ht/index.html" afterPath="$PROJECT_DIR$/p1/ht/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/p1/kqsp/kqsp.js" afterPath="$PROJECT_DIR$/p1/kqsp/kqsp.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/p1/kqsp/sp.html" afterPath="$PROJECT_DIR$/p1/kqsp/sp.html" />
     </list>
     <list id="d3de8d82-7fe8-4179-a7a0-ab9c6d6a33d0" name="Failed commit: Default" comment="sfd" />
     <ignored path="cyb.iws" />
@@ -31,7 +27,31 @@
     <favorites_list name="cyb" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="kqsp.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/p1/kqsp/kqsp.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="193">
+              <caret line="122" column="0" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+              <folding>
+                <element signature="e#121#2278#0" expanded="false" />
+                <element signature="e#2288#4390#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sp.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/p1/kqsp/sp.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -93,12 +113,12 @@
         <option value="$PROJECT_DIR$/p1/ht/2.html" />
         <option value="$PROJECT_DIR$/cdn/index.css" />
         <option value="$PROJECT_DIR$/p1/ht/1.html" />
-        <option value="$PROJECT_DIR$/p1/ht/index.html" />
         <option value="$PROJECT_DIR$/p1/kqsp/kqsp.html" />
         <option value="$PROJECT_DIR$/p1/kqsp/list.html" />
         <option value="$PROJECT_DIR$/p1/kqsp/index.html" />
         <option value="$PROJECT_DIR$/p1/kqsp/sp.html" />
         <option value="$PROJECT_DIR$/p1/kqsp/kqsp.js" />
+        <option value="$PROJECT_DIR$/p1/ht/index.html" />
       </list>
     </option>
   </component>
@@ -199,6 +219,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="p1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ht" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cyb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cyb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -221,11 +259,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\chenyb\myproject\finally\cyb\p1\kqsp" />
       <recent name="D:\chenyb\myproject\finally\cyb\img" />
       <recent name="D:\chenyb\myproject\finally\cyb\p1\dl" />
       <recent name="D:\chenyb\myproject\finally\cyb\p1\irl" />
       <recent name="D:\chenyb\myproject\finally\cyb\p1" />
-      <recent name="D:\chenyb\myproject\finally\cyb\p1\infor" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\chenyb\myproject\finally\cyb\p1\ht" />
@@ -332,7 +370,7 @@
       <option name="presentableId" value="Default" />
       <updated>1487121390073</updated>
       <workItem from="1487121391214" duration="72044000" />
-      <workItem from="1487551870973" duration="25731000" />
+      <workItem from="1487551870973" duration="26635000" />
     </task>
     <task id="LOCAL-00001" summary="sfd">
       <created>1487236152427</created>
@@ -446,11 +484,25 @@
       <option name="project" value="LOCAL" />
       <updated>1487576581576</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="sfd">
+      <created>1487578893464</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1487578893464</updated>
+    </task>
+    <task id="LOCAL-00018" summary="sfd">
+      <created>1487579073701</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1487579073701</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97775000" />
+    <option name="totallyTimeSpent" value="98679000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="0" />
@@ -884,14 +936,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/p1/ht/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="18" column="65" selection-start-line="18" selection-start-column="65" selection-end-line="18" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/p1/ht/1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3325">
@@ -918,14 +962,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/p1/kqsp/sp.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/p1/kqsp/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -944,17 +980,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/p1/kqsp/list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="564">
-          <caret line="67" column="38" selection-start-line="67" selection-start-column="38" selection-end-line="67" selection-end-column="38" />
+        <state relative-caret-position="773">
+          <caret line="63" column="28" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/p1/ht/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/p1/kqsp/sp.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/p1/kqsp/kqsp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
-          <folding />
+        <state relative-caret-position="193">
+          <caret line="122" column="0" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+          <folding>
+            <element signature="e#121#2278#0" expanded="false" />
+            <element signature="e#2288#4390#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
