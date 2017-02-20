@@ -1,4 +1,122 @@
-
-2
-<img src="../../img/logo.jpg"  width="200px" height="300px">
+<img src="../../img/logo.jpg"  width="100px" height="100px">
 {{param}}
+<style>
+    #triangle-up {
+        width: 0;
+        height: 0;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-bottom: 100px solid red;
+    }
+    #triangle-down {
+        width: 0;
+        height: 0;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-top: 100px solid red;
+    }
+    #triangle-left {
+        width: 0;
+        height: 0;
+        border-top: 50px solid transparent;
+        border-right: 100px solid red;
+        border-bottom: 50px solid transparent;
+    }
+
+    #triangle-right {
+        width: 0;
+        height: 0;
+        border-top: 50px solid transparent;
+        border-left: 100px solid red;
+        border-bottom: 50px solid transparent;
+    }
+    #triangle-topleft {
+        width: 0;
+        height: 0;
+        border-top: 100px solid red;
+        border-right: 100px solid transparent;
+    }
+    #triangle-topright {
+        width: 0;
+        height: 0;
+        border-top: 100px solid red;
+        border-left: 100px solid transparent;
+    }
+    #triangle-bottomleft {
+        width: 0;
+        height: 0;
+        border-bottom: 100px solid red;
+        border-right: 100px solid transparent;
+    }
+    #triangle-bottomright {
+        width: 0;
+        height: 0;
+        border-bottom: 100px solid red;
+        border-left: 100px solid transparent;
+    }
+</style>
+<style>
+    #talkbubble {
+        margin:30px;
+        width: 120px;
+        height: 80px;
+        background: red;
+        word-break: break-all;
+        word-wrap: break-word;
+        position: relative;
+        -moz-border-radius:    10px;
+        -webkit-border-radius: 10px;
+        border-radius:         10px;
+    }
+    #talkbubble:before {
+        content:"";
+        position: absolute;
+        right: 100%;
+        top: 26px;
+        width: 0;
+        height: 0;
+        border-top: 13px solid transparent;
+        border-right: 26px solid red;
+        border-bottom: 13px solid transparent;
+    }
+</style>
+<!---->
+<div class="am-fixed">
+    <div class="am-u-sm-2"><div id="triangle-left"></div></div>
+    <div class="am-u-sm-2"><div id="triangle-right"></div></div>
+    <div class="am-u-sm-2"><div id="triangle-up"></div></div>
+    <div class="am-u-sm-2"><div id="triangle-down"></div></div>
+    <div class="am-u-sm-2"><div id="triangle-topleft"></div></div>
+    <div class="am-u-sm-2"><div id="triangle-topright"></div></div>
+    <div class="am-u-sm-2"><div id="triangle-bottomleft"></div></div>
+    <div class="am-u-sm-2 "><div id="triangle-bottomright"></div></div>
+    <div class="am-u-sm-2 am-u-end"><div id="talkbubble">sdfsfsdfsdfsdfsdfsdffffsdfsdfsffffffffffffffffffff</div></div>
+</div>
+<input type="text" id="t" value="div下移10px" style="float:left;width: 150px;" class="am-form-field" />
+<input type="button" id="b" value="点我,将div移动到输入框的顶点！" class="am-btn-primary" style="float:left" />
+<div id="d" style="width:100px; height:100px; border:1px solid #000; float:left"></div>
+<script type="text/javascript">
+var flag = true;
+    document.getElementById("b").onclick=function()
+    {
+        if(flag){
+        var t = document.getElementById("t");
+        var d = document.getElementById("d");
+        d.style.position="absolute";
+        d.style.left = t.offsetLeft+"px";
+        d.style.top = t.offsetTop + t.offsetHeight +"px";
+            flag = false;
+        }else{
+            var t = document.getElementById("t");
+            var d = document.getElementById("d");
+            d.style.position="absolute";
+            d.style.left = t.offsetLeft+"px";
+            d.style.top = t.offsetTop + t.offsetHeight+10 +"px";
+            flag = true;
+        }
+    }
+
+</script>
+
+
+
