@@ -12,6 +12,14 @@ myApp.config(['$stateProvider', '$urlRouterProvider','$httpProvider',
         }).state("contacts",{
             url:"/contacts",
             templateUrl:"p1/infor/lxwm.html"
+        }).state("lsqk",{
+            url:"/lsqk",
+            templateUrl:"p1/infor/lsqk.html",
+            controller:function ($scope,$http) {
+                $http.get("data/infor/lsqk.json", {cache: true}).success(function(data){
+                    $scope.lsqk=data.data;
+                });
+            }
         }).state("inner",{
             url:"/inner",
             templateUrl:"p1/infor/index.html",
