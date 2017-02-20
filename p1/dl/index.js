@@ -7,7 +7,7 @@ angular.module("myApp",["ui.router","myfooter","myheader","mynav","mymenu"])
     function($stateProvider, $urlRouterProvider) {
         $stateProvider.state("dl",{
             url:"/index",
-            templateUrl:"vip.html",
+            templateUrl:"customer.html",
             abstrace:true,
             controller:function($scope,$http) {
             }

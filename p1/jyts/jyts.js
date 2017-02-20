@@ -243,7 +243,7 @@ angular.module('app', ['ui.router',"myfooter","mymenu"])
         restrict: 'E'
     })
     .controller('headController', function ($scope) {
-        $scope.link = {title:"交易提示",url:"/xx/yy",names:["交易日历","交易提示"]};
+        $scope.link = {title:"我的日历",url:"/xx/yy",names:["交易日历","交易提示"]};
     });
 
 

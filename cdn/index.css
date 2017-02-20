@@ -6,7 +6,7 @@ img {
 }
 .webui-popover {
     background-color: rgba(0, 0, 0, 0);
-    border: 1px solid #fff;
+    border: 1px solid red;
 }
 
 .webui-arrow {
@@ -14,14 +14,15 @@ img {
 }
 
 .webui-popover .webui-popover-content {
-    color: #FFF
+    color: gray;
 }
 .webui-popover-cyb-wx {
     background-color: rgba(0, 0, 0, 0);
-    border: 0px solid #fff;
+    border: 2px solid red;
     -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0);
     z-index: 99;
+    margin: 2px;
 }
 .hi-icon {
     width: 80px;
