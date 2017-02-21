@@ -39,8 +39,8 @@
 <hr>
 <hr><br>
 <div class="am-fixed">
-    <div class="am-u-sm-2"><div class="fang" style="box-shadow:5px 2px 6px #000;width:100px;height:100px;border:solid indigo 5px;background-size:100px 100px;background-image: url('img/logo.png')"></div></div>
-    <div class="am-u-sm-2"><div class="fang" style="box-shadow:5px 2px 6px #000;width:100px;height:100px;border:solid gray 2px;background-size:100px 100px;background-color: green"></div></div>
+    <div class="am-u-sm-2 fang"><div>title</div><div>title description</div><div  style="width:100px;height:100px;border:solid indigo 0px;background-size:100px 100px;background-image: url('img/logo.png')"></div></div>
+    <div class="am-u-sm-2"><div class="fang" style="box-shadow:5px 2px 6px #000;width:100px;height:100px;border:solid gray 0px;background-size:100px 100px;background-color: green"></div></div>
     <div class="am-u-sm-2"><div class="fang" style="box-shadow:5px 2px 6px #000;width:100px;height:100px;border:solid gray 2px;background-size:100px 100px;background-image: url('http://p0.so.qhmsg.com/bdr/_240_/t010eb34ad88c616f45.jpg')"></div></div>
     <div class="am-u-sm-2"><div class="fang" style="box-shadow:5px 2px 6px #000;width:100px;height:100px;border:solid gray 2px;background-size:100px 100px;background-color: green"></div></div>
     <div class="am-u-sm-2"><div class="fang" style="box-shadow:5px 2px 6px #000;width:100px;height:100px;border:solid gray 2px;background-size:100px 100px;background-image: url('img/logo.jpg')"></div></div>
@@ -90,10 +90,10 @@
         });
         $('.fang').mouseover(function(e){
             console.log(e.pageX + ", " + e.pageY);
-            $('.fang').css("border","solid indigo 0px")
+            $('.fang').css("box-shadow","5px 2px 6px #000");
         });
         $('.fang').mouseout(function(e){
-            $('.fang').css("border","solid gray 5px");
+            $('.fang').css("box-shadow","0px 0px 0px #000");
             console.log(e.pageX + ", :" + e.pageY);
         });
     });
