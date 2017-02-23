@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        body,html {
+            margin: 0;
+            padding: 0;
+            height:100%;
+        }
+        #main {
+            position: relative;
+            min-height:100%;
+            margin-top:2rem;
+        }
+        #content {
+            padding: 10px;
+            padding-bottom: 100px;
+        }
+        #footer {
+            position: absolute;
+            bottom: 0;
+            height: 100px;
+            width: 100%;
+            line-height: 100px;
+            background:lightblue;
+            text-align: center;
+        }
+        #header{background-color:blue;color:white;position:absolute;top:0px;left:0px;height:46px;line-height: 46px;width:100%;}
+
+
+        #wp{
+             border: 1px solid red;
+             width: 500px;
+             height: 500px;
+             background-color: pink;
+             color: black;
+             transition-property: background color;
+             transition-duration: 5s;
+             transition-timing-function: cubic-bezier(0 0 0.2 0.2);
+             transition-delay: 1s;
+             transform: perspective(600px);
+             }
+        #wp:hover{
+              background: red;
+              color: white;
+              width: 800px;
+              transform-origin: (150px 100px 120px);
+              transform: skewY(80deg) rotate(45deg) translate(50%) ;
+              }
+
+    </style>
+</head>
+<body>
+<div id="header">页脚随着分辨率的提高不会发生变化！</div>
+<div id="main">
+    <div id="content">
+        <script type="text/javascript">
+            for(var i=0; i<10; i++){
+                document.write(i+'<br/>');
+            }
+        </script>
+        <div></div>
+            <div id="wp" style="margin: 0px;word-wrap:break-word;width: 20rem;border:1px solid red;">
+                掌控全球聚焦国内期货，外盘期货及相关金融衍生品。提供开户、行情和交易服务一站式服务，扩展您投资领域，增加您的投资渠道。掌控全球，争做全球金融衍生品领导品牌。
+                支持市场：中金所、上期所、大商所、郑商所、上证、深证、LME、CME、COMEX、NYMEX、CBOT、NYBOT、ICE、SGX、TOCOM。
+                《东航金融》App 由央企东航集团旗下金融机构东航金控联合东航期货、东航国际金融（香港）等共同研发，以期货投资为特色，涵盖私募资管、港股、海外期货、杠杆外汇等业务。
+                功能包括手机开户、行情交易、交易策略、数据分析、私募基金、组合配置、各类计算等。是业内领先的智能金融移动工具。
+            </div>
+
+      <!--  <div><img src="img/logo.jpg" height="900px" width="90%"></div>
+        <div><img src="img/logo.jpg" height="900px"  width="90%"></div>
+        <div><img src="img/logo.jpg" height="900px"  width="90%"></div>
+        <div><img src="img/logo.jpg" height="900px"  width="90%"></div>-->
+<!--        <div><img src="img/logo.jpg" height="900px"  width="90%"></div>
+        <div><img src="img/logo.jpg" height="900px"  width="90%"></div>
+        <div><img src="img/logo.jpg" height="900px"  width="90%"></div>
+        <div><img src="img/logo.jpg" height="900px"  width="90%"></div>-->
+    </div>
+    <div id="footer">
+            Footer
+    </div>
+</div>
+</body>
+</html>

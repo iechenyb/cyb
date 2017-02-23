@@ -6,14 +6,45 @@
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-wip/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../cdn/amazeui.min.css">
     <link rel="stylesheet" href="../../css/blacknav.css">
+    <style>
+        body,html {
+            margin: 0;
+            padding: 0;
+            height:100%;
+        }
+        #main {
+            position: relative;
+            min-height:100%;
+            margin-top:2rem;
+        }
+        #content {
+            padding: 10px;
+            padding-bottom: 100px;
+        }
+        #footer {
+            position: absolute;
+            margin-bottom: 0px;
+            height: 100px;
+            width: 100%;
+            font-size: 2rem;
+            line-height: 100px;
+            background:lightblue;
+            text-align: center;
+        }
+    </style>
 </head>
 <body  ng-controller="myCtrl">
 <mymenu></mymenu>
 <mynav links="navs"></mynav>
-<div ui-view>
-    {{name}}
+<div id="main">
+    <div id="content">
+        <div ui-view>
+            {{name}}
+        </div>
+    </div>
 </div>
-<myfooter></myfooter>
+<myfooter id="footer"></myfooter>
+<!--<div id="footer"> www.iechenyb.com @c ,the footer definded by iechenyb!</div>-->
 </body>
 <script src="../../cdn/jquery.min.js"></script>
 <script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.min.js"></script>
