@@ -82,7 +82,8 @@
                         break;
                 }
                 ul.style.webkitTransform = "rotateX("+x+"deg) rotateY("+y+"deg)"; //变换效果（沿X轴和Y轴旋转）
-            }, false);document.addEventListener("keydown", function (e) {
+            }, false);
+            document.addEventListener("keydown", function (e) {
                 ul.style.webkitTransition = '-webkit-transform 3s linear';
                 ul.style.oTransition = '-o-transform 3s linear';
                 ul.style.transition = 'transform 3s linear';
