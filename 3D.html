@@ -13,7 +13,7 @@
             font-size: 5rem;
         }
         .container {
-            animation: rotate-frame 30s linear infinite;
+            animation: rotate-frame 60s linear infinite;
             position: relative;
             margin-left:20%;
             width: 800px;
@@ -104,21 +104,22 @@
                 transform: rotateX(90deg) rotateY(180deg);
             }
             70% {
-                transform: rotateX(0) rotateY(180deg);
+                transform: rotateX(0deg) rotateY(180deg);
             }
             80% {
                 transform: rotateX(90deg) rotateY(90deg);
             }
             90% {
-                transform: rotateX(90deg) rotateY(0);
+                transform: rotateX(90deg) rotateY(0deg);
             }
             100% {
-                transform: rotateX(0) rotateY(0);
+                transform: rotateX(0deg) rotateY(0deg);
             }
         }
     </style>
 </head>
 <body>
+<img src="img/3.jpg" width="40px" height="40px" alt="八仙花"/>鼠标移过来，看看图片效果。
 <div class="rect-wrap"> 3D视野空间宽1600px <!-- 舞台元素，设置perspective，让其子元素获得透视效果。-->
     <div class="container">元素舞台800*800,正方体800*800*800px <!--容器，设置transform-style: preserve-3d，让其子元素在3D空间呈现-->
         <div class="slide top"><!--<img src="img/1.jpg" width="400px" height="400px" alt="沙漠"/>-->顶面</div>   <!--立方体的六个面-->
@@ -129,5 +130,18 @@
         <div class="back slide"><!--<img src="img/6.jpg" width="400px" height="400px" alt="灯塔"/>-->后面</div>
     </div>
 </div>x
+<style>
+    <!---->
+    img{
+        height:400px;
+        width:400px;
+        transition:  1s height, 1s width;
+    }
+    img:hover{
+        height: 450px;
+        width: 450px;
+    }
+</style>
+
 </body>
 </html>
