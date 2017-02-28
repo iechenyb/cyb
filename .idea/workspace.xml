@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17459e27-f49d-4ac8-910e-82701e039c06" name="Default" comment="sfd">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/caidan/data.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/diancan.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rain.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="d3de8d82-7fe8-4179-a7a0-ab9c6d6a33d0" name="Failed commit: Default" comment="sfd" />
@@ -343,7 +340,7 @@
       <workItem from="1487551870973" duration="59450000" />
       <workItem from="1487831475438" duration="16545000" />
       <workItem from="1488165686645" duration="5792000" />
-      <workItem from="1488248383750" duration="9227000" />
+      <workItem from="1488248383750" duration="9240000" />
     </task>
     <task id="LOCAL-00001" summary="sfd">
       <created>1487236152427</created>
@@ -541,11 +538,18 @@
       <option name="project" value="LOCAL" />
       <updated>1488176817266</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="sfd">
+      <created>1488263710832</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1488263710832</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163058000" />
+    <option name="totallyTimeSpent" value="163071000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="0" />
