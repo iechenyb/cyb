@@ -16,11 +16,11 @@
 <body ng-controller="myCtrl" ng-init="ys=150;used=0;names='还没有点菜！';total=0" style="background-color: beige">
 <table class="am-table am-table-radius am-table-bd">
 <tr><td colspan="5">预算:{{ys}}元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;已点:{{used}}元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    超出：{{ys-used}}元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 共：{{total}}个菜</td></tr>
+    剩余：{{ys-used}}元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 共：{{total}}个菜</td></tr>
 <tr><td colspan="5">{{names}}</td></tr>
 <tr><th><input type="checkbox" ng-model="all" id="all"></th><th>菜名</th><th>数量</th><th>价格</th><th>总价</th></tr>
-<tr ng-repeat="vo in list">
-    <td><input type="checkbox" ng-checked="all" ng-checked id="{{vo.id}}" ng-click="calPrice(vo)"></td>
+<tr ng-repeat="vo in list" on-finish-render="renderOver">
+    <td><input type="checkbox" ng-checked="all"  id="{{vo.id}}" ng-click="calPrice(vo)"></td>
     <td width="50%">{{vo.name}}</td>
     <td>{{vo.price}}/份</td>
     <td align="center">
@@ -30,6 +30,9 @@
     <td>{{vo.num*vo.price}}元</td>
 </tr>
 </table>
+员工管理1:<div get-title="yggl.admin"></div>
+员工管理2:<div get-title="yggl.emp"></div>
+员工管理3:<div get-title="yggl.boss"></div>
 </body>
 <script type="text/javascript" src="cdn/jquery.min.js"></script>
 <script type="text/javascript" src="cdn/angular.min.js"></script><!--1.5.7-->
@@ -37,14 +40,20 @@
 <script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.3.0-beta.8/angular-animate.min.js"></script>
 <script type="text/javascript" src="cdn/angular-ui-router.min.js"></script><!--0.3.1-->
 <script type="text/javascript" src="https://lscho.github.io/am-page/dist/amazeui.page.js"></script>
+<script type="text/javascript" src="component/common.js"></script>
 <script type="text/javascript">
-    var myApp = angular.module("myApp",[]);
+    var myApp = angular.module("myApp",["repeatFinish","getTitle"]);
     myApp.controller("myCtrl",function($scope,$http){
         $http.get("data/caidan/data.json", {cache: true}).success(
                 function(data){
                     $scope.list= data;
                 }
         );
+        console.log("未使用事件通知："+$('#100').parent().html());
+        $scope.$on("renderOver",function () {
+            console.log("使用事件通知："+$('#100').parent().html());
+            $('#100').click();
+        });
         $scope.my=function(){
             $scope.used = 0;
             $scope.names = '';

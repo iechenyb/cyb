@@ -7,7 +7,7 @@ var jsonPD = function (data) {
   if (data.code == 0)return true;
   else alert(data.msg);
   return false;
-}
+};
 var reEscapedHtml = /(&amp;|&lt;|&gt;|&quot;|&#39;)/g;
 var htmlUnescapes = {
   '&amp;': '&',
@@ -87,13 +87,31 @@ angular.module('repeatFinish', [])
         }
       }
     });
+var linksMAP={
+    yggl:{
+        title:"员工管理",
+        url:"p1/yggl",
+        admin:{
+            title:"管理员管理",
+            url:"p1/yggl",
+        },
+        emp:{
+            title:"普通员工管理",
+            url:"p1/yggl",
+        },
+        boss:{
+            title:"领导管理",
+            url:"p1/yggl",
+        }
+    }
+};
 angular.module('getTitle', [])
     .directive('getTitle', function () {
       return {
         restrict: 'A',
         template: function (element, attr) {
           var names = attr.getTitle.split(".");
-          var value = dh_links;
+          var value = linksMAP;
           for (var i = 0; i < names.length; i++) {
             value = value[names[i]]
           }
