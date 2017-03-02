@@ -53,6 +53,7 @@
         $scope.$on("renderOver",function () {
             console.log("使用事件通知："+$('#100').parent().html());
             $('#100').click();
+            $('#99').click();
         });
         $scope.my=function(){
             $scope.used = 0;
