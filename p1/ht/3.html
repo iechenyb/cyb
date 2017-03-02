@@ -35,7 +35,7 @@
     <ul>
         <li><a href="#">首页</a>
             <div style="position: relative;border:1px solid greenyellow">
-                <ul style="position: absolute;left: -50px;top: 0">
+                <ul class="sec" style="position: absolute;left: -50px;top: 0">
                     <li style="position: absolute;left: 0;top:0px;"><a href="#">首页</a></li>
                     <li style="position: absolute;left: 0;top:80px;"><a href="#">博客</a></li>
                     <li style="position: absolute;left: 0;top:160px;"><a href="#">设计</a></li>
@@ -44,7 +44,7 @@
         </li>
         <li><a href="#">博客</a>
             <div style="position: relative;border:1px solid greenyellow">
-                <ul style="position: absolute;left: -50px;top: 0">
+                <ul class="sec" style="position: absolute;left: -50px;top: 0">
                     <li style="position: absolute;left: 0;top:0px;"><a href="#">首页</a></li>
                     <li style="position: absolute;left: 0;top:80px;"><a href="#">博客</a></li>
                     <li style="position: absolute;left: 0;top:160px;"><a href="#">设计</a></li>
@@ -53,7 +53,7 @@
         </li>
         <li><a href="#">设计</a>
             <div style="position: relative;border:1px solid greenyellow">
-                <ul style="position: absolute;left: -50px;top: 0">
+                <ul class="sec" style="position: absolute;left: -50px;top: 0">
                     <li style="position: absolute;left: 0;top:0px;"><a href="#">首页</a></li>
                     <li style="position: absolute;left: 0;top:80px;"><a href="#">博客</a></li>
                     <li style="position: absolute;left: 0;top:160px;"><a href="#">设计</a></li>
@@ -62,7 +62,7 @@
         </li>
         <li><a href="#">相册</a>
             <div style="position: relative;border:1px solid greenyellow">
-                <ul style="position: absolute;left: -50px;top: 0">
+                <ul class="sec" style="position: absolute;left: -50px;top: 0">
                     <li style="position: absolute;left: 0;top:0px;"><a href="#">首页</a></li>
                     <li style="position: absolute;left: 0;top:80px;"><a href="#">博客</a></li>
                     <li style="position: absolute;left: 0;top:160px;"><a href="#">设计</a></li>
@@ -80,7 +80,7 @@
         </li>
         <li><a href="www.baidu.com" target="_blank">关于</a>
             <div style="position: relative;border:1px solid greenyellow">
-                <ul style="position: absolute;left: -50px;top: 0">
+                <ul class="sec" style="position: absolute;left: -50px;top: 0">
                     <li style="position: absolute;left: 0;top:0px;"><a href="#">首页</a></li>
                     <li style="position: absolute;left: 0;top:80px;"><a href="#">博客</a></li>
                     <li style="position: absolute;left: 0;top:160px;"><a href="#">三级</a>
@@ -96,8 +96,8 @@
             </div>
         </li>
         <li><a href="#">论坛</a>
-            <div style="position: relative;border:1px solid greenyellow">
-                <ul style="position: absolute;left: -50px;top: 0">
+            <div  style="position: relative;border:1px solid greenyellow">
+                <ul class="sec" style="position: absolute;left: -50px;top: 0">
                     <li style="position: absolute;left: 0;top:0px;"><a href="#">首页</a></li>
                     <li style="position: absolute;left: 0;top:80px;"><a href="#">博客</a></li>
                     <li style="position: absolute;left: 0;top:160px;"><a href="#">设计</a></li>
@@ -109,19 +109,25 @@
 <script type="text/javascript">
     $(function(){
         $(".menu li div").css("display","none");
+        //一级菜单处理
         $(".menu li").mouseover(function(){
            // this.("div").css("display","block");
             $(this).find("div").css("display","block");
+           /* $(this).find("div + ul").css("top",$(this).height()-80);
+            $(this).find("div + ul").css("left",0-$(this).width()+48);*/
+            $(this).find(".sec").css("top",$(this).height()-80);
+            $(this).find(".sec").css("left",0-$(this).width()+48);
         });
         $(".menu li").mouseout(function(){
             // this.("div").css("display","block");
             $(this).find("div").css("display","none");
         });
+        //二级菜单处理
         $(".menu li div ul li").mouseover(function(){
             // this.("div").css("display","block");
             console.log($(this).width()+","+$(this).height());
-            $(this).find("ul").css("top",0-$(this).height()-3);
-            $(this).find("ul").css("left",$(this).width()-1);
+            $(this).find("ul").css("top",0-$(this).height()-6);
+            $(this).find("ul").css("left",$(this).width()+1);
             //$(this).find("ul").css("border","5px solid white");
             $(this).find("div").css("display","block");
             $(this).find("ul").css("display","block");
@@ -133,6 +139,8 @@
         });
         $(".menu li div ul li div ul li").mouseover(function(){
             // this.("div").css("display","block");
+            $(this).find("div + ul").css("top",0-$(this).height()-3);
+            $(this).find("div + ul").css("left",$(this).width()+1);
             $(this).find("div").css("display","block");
             $(this).find("ul").css("display","block");
         });
