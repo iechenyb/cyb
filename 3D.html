@@ -117,9 +117,32 @@
             }
         }
     </style>
+    <style>
+        .news-img-a, .adsSet-a {
+            border:1px solid red;
+            position: relative;
+            display: inline-block;
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        .news-img,.adsSet-img{
+            border:1px solid green;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            transition: all 0.2s linear;
+            width: 400px;
+        }
+    </style>
 </head>
 <body>
-<img src="img/3.jpg" width="40px" height="40px" alt="八仙花"/>鼠标移过来，看看图片效果。
+<img class="img1" src="img/3.jpg" width="40px" height="40px" alt="八仙花"/>鼠标移过来，看看图片效果。
+<a  class="news-img-a">
+    <img  class="news-img" src="img/3.jpg" width="400px" height="400px" alt="八仙花"/>鼠标移过来，看看图片效果。
+</a>
 <div class="rect-wrap"> 3D视野空间宽1600px <!-- 舞台元素，设置perspective，让其子元素获得透视效果。-->
     <div class="container">元素舞台800*800,正方体800*800*800px <!--容器，设置transform-style: preserve-3d，让其子元素在3D空间呈现-->
         <div class="slide top"><!--<img src="img/1.jpg" width="400px" height="400px" alt="沙漠"/>-->顶面</div>   <!--立方体的六个面-->
@@ -138,8 +161,8 @@
         transition:  1s height, 1s width;
     }
     img:hover{
-        height: 450px;
-        width: 450px;
+        height: 650px;
+        width: 650px;
     }
 </style>
 
