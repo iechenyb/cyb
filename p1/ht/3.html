@@ -108,6 +108,16 @@
 </div><div></div>
 <script type="text/javascript">
     $(function(){
+        /*某个元素的上边界到body最顶部的距离：obj.offset().top;（在元素的包含元素不含滚动条的情况下）
+          某个元素的左边界到body最左边的距离：obj.offset().left;（在元素的包含元素不含滚动条的情况下）
+         // #1
+         anchors.children();anchors.children('p')；
+         // #2
+         $('> *', anchors);
+         // #3
+         anchors.find('> *')
+         1 2 3 相互 等价
+          */
         $(".menu li div").css("display","none");
         //一级菜单处理
         $(".menu li").mouseover(function(){
