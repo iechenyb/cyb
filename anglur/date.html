@@ -47,7 +47,7 @@
             if (event.date.valueOf() > endDate.valueOf()) {
                 $alert.find('p').text('开始日期应小于结束日期！').end().show();
             } else {
-                $alert.hide();
+                $alert.hide();//
                 startDate = new Date(event.date);
                 $('#my-startDate').val($('#my-start').data('date'));
             }
