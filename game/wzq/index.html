@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>ngselected</title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <link rel="stylesheet" href="../../cdn/amazeui.min.css">
+</head>
+<body ng-controller="controller">
+<center>
+    <font size="10">当前步：<span ng-show="cur==0"><font color="green"><b>甲方</b></font></span><span ng-show="cur==1"><font color="black"> <b>乙方</b></font></span>  【绿 甲方 黑 乙方】</font>
+    <font size="10">下一步：<span ng-show="cur==1"><font color="green"><b>甲方</b></font></span><span ng-show="cur==0"><font color="black"> <b>乙方</b></font></span>  </font><br>
+</center>
+<table class="am-table-bd am-table am-table-bordered am-table-radius" style="width:80%;height: 80%;" align="center">
+    <tr ng-repeat="x in xArr">
+        <td ng-repeat="y in yArr" ng-click="show(x,y)" id="{{x+'-'+y}}" able="-1">{{x}}-{{y}}</td>
+    </tr>
+</table>
+<script src="../../cdn/jquery.min.js"></script>
+<script>
+    var app = angular.module('app',[]);
+    app.controller('controller',main);
+    var ROW=20;
+    function main($scope,$q,$http){
+        $scope.fisrt=1;
+        $scope.cur=1;
+         $scope.show=function (x,y) {
+             console.log("#"+x+"#"+y);
+            if($scope.cur==1){
+                if($("#"+x+"-"+y).attr('able')==-1){
+                    $("#"+x+"-"+y).css('background-color','green');
+                    $("#"+x+"-"+y).attr("able",1);
+                }
+                $scope.cur=0;
+            }else{
+                if($("#"+x+"-"+y).attr('able')==-1) {
+                    $("#" + x + "-" + y).css('background-color', 'black');
+                    $scope.cur = 1;
+                    $("#" + x + "-" + y).attr("able", 0);
+                }
+            }
+             checkVin(x,y);
+         };
+         $scope.xArr=new Array(ROW);
+         $scope.yArr=new Array(ROW);
+        for(var i=1;i<=ROW;i++){
+            $scope.xArr[i-1]=i;
+            $scope.yArr[i-1]=i;
+        }
+    }
+   function checkVin(x,y){
+       /*1-ZL 2-LU45 3-ZU 4-RU45 5-ZR  6-RD45 7-ZD 8-L45
+       * ZL+ZR
+       * LU45+RD45
+       * ZU+ZD
+       * LD45+RU45
+       * */
+       for(var direct=1;direct<=8;direct++){
+
+       }
+   }
+</script>
+<script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.min.js"></script>
+</body>
+</html>
