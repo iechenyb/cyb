@@ -1,7 +1,7 @@
 /**
  * Created by DHUser on 2017/7/12.
  */
-var ROW=20;
+var ROW=15;
 var person = new Array(2);
 person[1]="甲方";person[0]="乙方";
 var alia = new Array(2);

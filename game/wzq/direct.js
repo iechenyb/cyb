@@ -1,6 +1,7 @@
 /**
  * Created by DHUser on 2017/7/12.
  */
+//东西线
 function checkZLZR(x,y,curVal){
     var ZL=""+alia[curVal]; var ZR="";
     for (var num = 1; num <= 4; num++) {
@@ -23,6 +24,79 @@ function checkZLZR(x,y,curVal){
     }
     return ZL+ZR;
 }
+//西北-东南线
+function checkZUZD(x,y,curVal){
+    var LU=""+alia[curVal];var RD="";
+    for (var num = 1; num <= 4; num++) {
+        var curx = x - num;
+        var cury=y-num;
+        var val = $("#" + curx + "-" + cury).attr("able");
+        if (curx >= 1 &&cury>=1 && curVal == val) {
+            LU = LU + alia[val];
+        } else {
+            break;
+        }
+    }
+    for (var num = 1; num <= 4; num++) {
+        var curx = x + num;
+        var cury = y + num;
+        var val = $("#" + curx + "-" + cury).attr("able");
+        if (curx <= ROW && cury<=ROW && curVal == val) {
+            RD = RD + alia[val];
+        } else {
+            break;
+        }
+    }
+    return LU+RD;
+}
+//东北-西南线
+function checkRULD(x,y,curVal){
+    var RU=""+alia[curVal];var LD="";
+    for (var num = 1; num <= 4; num++) {
+        var curx = x - num;
+        var cury= y + num;
+        var val = $("#" + curx + "-" + cury).attr("able");
+        if (curx >= 1 &&cury>=1 && curVal == val) {
+            RU = RU + alia[val];
+        } else {
+            break;
+        }
+    }
+    for (var num = 1; num <= 4; num++) {
+        var curx = x + num;
+        var cury = y - num;
+        var val = $("#" + curx + "-" + cury).attr("able");
+        if (curx <= ROW && cury<=ROW && curVal == val) {
+            LD = LD + alia[val];
+        } else {
+            break;
+        }
+    }
+    return RU+LD;
+}
+//南北线
+function checkLURD(x,y,curVal){
+    var ZU=""+alia[curVal];var ZD="";
+    for (var num = 1; num <= 4; num++) {
+        var curx = x - num;
+        var val = $("#" + curx + "-" + y).attr("able");
+        if (curx >= 1 && curVal == val) {
+            ZU = ZU + alia[val];
+        } else {
+            break;
+        }
+    }
+    for (var num = 1; num <= 4; num++) {
+        var curx = x + num;
+        var val = $("#" + curx + "-" + y).attr("able");
+        if (curx <= ROW && curVal == val) {
+            ZD = ZD + alia[val];
+        } else {
+            break;
+        }
+    }
+    return ZU+ZD;
+}
 function checkVin(x,y,cur){
     /*1-ZL 2-LU45 3-ZU 4-RU45 5-ZR  6-RD45 7-ZD 8-LD45
      * ZL+ZR
@@ -32,17 +106,19 @@ function checkVin(x,y,cur){
      * */
     var divTop = $("#"+x+"-"+y).position().top;
     var divLeft = $("#"+x+"-"+y).position().left;
-    $("#obj").css("top",divTop-20);
-    $("#obj").css("left",divLeft-20);
-    //var div = "<div style='width:50px;height:50px;border-radius:50px;border:solid rgb(100,100,100) 1px;z-index:999;top:"+(divTop-20)+";left:"+(divLeft-20)+";position:absolute'></div>";
+    $("#obj").css("top",divTop);
+    $("#obj").css("left",divLeft);
     console.log("棋子坐标：TOP="+divTop+"，left="+divLeft);
-    // $(document.body).append(div);
     var curVal= $("#"+x+"-"+y).attr("able");
-    var LU45=""+alia[curVal];var ZU=""+alia[curVal]; var RU45=""+alia[curVal];
-    var RD45="";var ZD=""; var LD45="";
-    for(var direct=1;direct<=8;direct++) {
+    for(var direct=1;direct<=4;direct++) {
         if (direct == 1) {
-            if(checkWinStr(checkZLZR(x,y,curVal),curVal)) return ;//游戏结束
+            if (checkWinStr(checkZLZR(x, y, curVal), curVal)) return;//游戏结束
+        } else if (direct == 2){
+            if (checkWinStr(checkZUZD(x, y, curVal), curVal)) return;//游戏结束
+        }else if (direct == 3){
+            if (checkWinStr(checkLURD(x, y, curVal), curVal)) return;//游戏结束
+        }else if (direct == 4){
+            if (checkWinStr(checkRULD(x, y, curVal), curVal)) return;//游戏结束
         }
     }
 }
