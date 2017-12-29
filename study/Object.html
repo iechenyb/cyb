@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定义对象</title>
+    <script>
+       /* JavaScript中对象的创建有以下几种方式：
+        （1）使用内置对象
+        （2）使用JSON符号
+        （3）自定义对象构造*/
+       var str = String("实例初始化String");
+       var str1 = "直接赋值的String";
+       var func = new Function("x","console.log('I am init function!')");//示例初始化funcalert(x)
+       var o = {};//示例初始化一个Object
+        o.name= 'chenyb';
+        console.log(o.name);
+        var objJSON = {name:"刘德华",age:"25",sex:"男"};
+        console.log(objJSON);
+       var Animals = {};
+       Animals.name = "dog";
+       Animals.sex = "Male";
+       Animals.age = "2";
+        //======================
+       function test (o)
+       {
+           alert (o.name)
+       }
+       var strObject = '{nickname:"my girlfriend",name:"big pig"}';
+       test (eval("(" + strObject + ")"));
+       //使用this关键字定义构造的上下文属性
+       function Girl()
+       {
+           this.name = "big pig";
+           this.age = 20;
+           this.standing;
+           this.bust;
+           this.waist;
+           this.hip;
+       }
+       //使用prototype
+       function Girl(){}
+       Girl.prototype.name = "big pig";
+       Girl.prototype.age = 20;
+       Girl.prototype.standing;
+       Girl.prototype.bust;
+       Girl.prototype.waist;
+       Girl.prototype.hip;
+       Girl.prototype.showAge=function(){
+           alert(this.age)
+       };
+      new Girl().showAge();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

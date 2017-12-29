@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="../../cdn/amazeui.min.css">
+    <link rel="stylesheet" href="../../cdn/index.css">
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<mymenu></mymenu>
+<div class="am-g">
+    <div class="am-u-sm-1">&nbsp;</div>
+    <div class="am-u-sm-2">
+        <ul class="am-list admin-sidebar-list" id="collapase-nav-1">
+            <li  class="am-panel">
+                <a data-am-collapse="{parent: '#collapase-nav-1'}" href="#/"><i class="am-icon-home am-margin-left-sm"></i> 系统菜单</a>
+            </li>
+            <li class="am-panel">
+                <a data-am-collapse="{parent: '#collapase-nav-1', target: '#user-nav'}">
+                    <i class="am-icon-users am-margin-left-sm"></i>通用模块<i class="am-icon-angle-right am-fr am-margin-right"></i>
+                </a>
+                <ul class="am-list am-collapse admin-sidebar-sub" id="user-nav">
+                    <li><a ui-sref="menu({id:'1.html'})"><i class="am-icon-user am-margin-left-sm"></i> 气泡 </a></li>
+                    <li><a ui-sref="menu({id:'2.html'})"><i class="am-icon-user am-margin-left-sm"></i> 盒子模型 </a></li>
+                    <li><a ui-sref="menu({id:'3.html'})"><i class="am-icon-user am-margin-left-sm"></i>自定义菜单</a></li>
+                    <li><a ui-sref="menu({id:'4.html'})"><i class="am-icon-user am-margin-left-sm"></i>搜索框</a></li>
+                    <li><a ui-sref="menu({id:'dw.html'})"><i class="am-icon-user am-margin-left-sm"></i>绝对相对定位</a></li>
+                    <li><a href="../../box.html" target="_blank"><i class="am-icon-user am-margin-left-sm"></i> 盒子模型 </a></li>
+                    <li><a href="../../tubiao.html" target="_blank"><i class="am-icon-user am-margin-left-sm"></i> CSS精灵 </a></li>
+                    <li><a href="../../3D.html" target="_blank"><i class="am-icon-user am-margin-left-sm"></i>立方体</a></li>
+                    <li><a href="../../clock.html" target="_blank"><i class="am-icon-user am-margin-left-sm"></i>钟表</a></li>
+                    <li><a href="../../choujiang.html" target="_blank"><i class="am-icon-user am-margin-left-sm"></i>抽奖</a></li>
+                    <li><a href="../../diancan.html" target="_blank"><i class="am-icon-user am-margin-left-sm"></i>点餐</a></li>
+                    <li><a href="../../element.html" target="_blank"><i class="am-icon-user am-margin-left-sm"></i>css基础图形</a></li>
+                    <li><a href="../../rain.html" target="_blank"><i class="am-icon-user am-margin-left-sm"></i>雨</a></li>
+                    <li><a href="../../cloud.html" target="_blank"><i class="am-icon-user am-margin-left-sm"></i>云</a></li>
+                    <li><a href="'../../../jyts/#/index/201702/20"><i class="am-icon-user am-margin-left-sm"></i>日历</a></li>
+                    <li><a href="'../../../kqsp"><i class="am-icon-user am-margin-left-sm"></i>视频播放</a></li>
+                    <li><a href="'../../../kqsp"><i class="am-icon-user am-margin-left-sm"></i>音乐播放</a></li>
+                    <li><a ui-sref="menu({id:'sp.html'})"><i class="am-icon-user am-margin-left-sm"></i>商品列表</a></li>
+                </ul>
+            </li>
+            <li class="am-panel">
+                <a data-am-collapse="{parent: '#collapase-nav-1', target: '#user-nav1'}">
+                    <i class="am-icon-users am-margin-left-sm"></i>商城模块<i class="am-icon-angle-right am-fr am-margin-right"></i>
+                </a>
+                <ul class="am-list am-collapse admin-sidebar-sub" id="user-nav1">
+                    <li><a ui-sref="menu({id:'cart.html'})"><i class="am-icon-user am-margin-left-sm"></i> 购物车 </a></li>
+                    <li><a ui-sref="menu({id:'sp.html'})"><i class="am-icon-user am-margin-left-sm"></i> 商品列表 </a></li>
+                    <li><a ui-sref="menu({id:'1.html'})"><i class="am-icon-user am-margin-left-sm"></i> 商品详情 </a></li>
+                    <li><a ui-sref="menu({id:'order.html'})"><i class="am-icon-user am-margin-left-sm"></i> 订单信息 </a></li>
+                    <li><a ui-sref="menu({id:'1.html'})"><i class="am-icon-user am-margin-left-sm"></i> 收货地址 </a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="am-u-sm-9" style="text-align: left">
+        <div class="" ui-view></div>
+    </div>
+</div>
+&nbsp;
+<hr>
+<myfooter></myfooter>
+</body>
+<script src="../../cdn/jquery.min.js"></script>
+<script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.min.js"></script>
+<script type="text/javascript" src="../../cdn/angular.min.js"></script><!--1.5.7-->
+<script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.3.0-beta.8/angular-animate.min.js"></script>
+<script type="text/javascript" src="../../cdn/angular-ui-router.min.js"></script><!--0.3.1-->
+<script type="text/javascript" src="../../js/pub.js"></script>
+<script type="text/javascript" src="../../component/footer/index.js"></script>
+<script type="text/javascript" src="../../component/header/index.js"></script>
+<script type="text/javascript" src="../../component/menu/index.js"></script>
+<script type="text/javascript" src="../../component/common.js"></script>
+<script type="text/javascript" src="index.js"></script>
+</html>

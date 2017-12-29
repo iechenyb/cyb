@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>五子棋</title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <link rel="stylesheet" href="../../cdn/amazeui.min.css">
+</head>
+<body ng-controller="controller">
+<center><font size="10"> 甲方-黑球   乙方-白球   默认先手 甲方（黑球）</font><a href="index.html">重新布局</a><br>
+</center>
+<table border="1" style="width:900px;height: 900px;background:url(bg-1.jpg) no-repeat center center" align="center" >
+    <tr ng-repeat="x in xArr">
+        <td ng-repeat="y in yArr" ng-click="show(x,y)" id="{{x+'-'+y}}" able="-1" style="width:45px;height:45px; text-align: center;line-height: 45px">{{x}}-{{y}}</td>
+    </tr>
+</table>
+<div id="obj" style="filter:alpha(Opacity=80);-moz-opacity:0.5;opacity: 0.5;width:60px;height:60px;border-radius:60px;border:solid red 3px;z-index:999;position:absolute"></div>
+<script src="../../cdn/jquery.min.js"></script>
+<script src="pub.js"></script>
+<script src="direct.js"></script>
+<script src="main.js"></script>
+<script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.min.js"></script>
+</body>
+</html>

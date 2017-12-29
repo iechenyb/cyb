@@ -1,0 +1,57 @@
+<style>
+    td{
+        text-align: center
+    }
+    th{
+        text-align: center
+    }
+</style>
+<table class="am-table am-table-bordered" align="center">
+    <thead>
+    <tr style="background-color: #0bffac">
+        <th width="5%" align="center">序号</th>
+        <th>名称</th>
+        <th>创建人</th>
+        <th>数量</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="vo in list" style="background-color: #fefffe">
+        <td>{{$index+1}}</td>
+        <td>{{vo.name}}</td>
+        <td>{{vo.work}}</td>
+        <td>{{vo.age}}</td>
+    </tr>
+    </tbody>
+</table>
+<script>
+    /*$("#page").page({
+        pages:$scope.pages, //页数
+        curr: $scope.cur, //当前页
+        type: 'default', //主题
+        groups: 5, //连续显示分页数
+        prev: '<', //若不显示，设置false即可
+        next: '>', //若不显示，设置false即可
+        first: "首页",
+        last: "尾页", //false则不显示
+        render: function(context, $el, index) { //渲染[context：对this的引用，$el：当前元素，index：当前索引]
+            //逻辑处理
+            if (index == 'last') { //虽然上面设置了last的文字为尾页，但是经过render处理，结果变为最后一页
+                $el.find('a').html('最后一页');
+                return $el; //如果有返回值则使用返回值渲染
+            }
+            console.log(index);
+            return false; //没有返回值则按默认处理
+        },
+        jump: function(context, first) {
+            if (first)return;
+            console.log('当前第：' + context.option.curr + "页,pages="+$scope.pages);
+            $scope.$apply(function () {
+                $scope.cur = context.option.curr;
+                $scope.start = ($scope.cur-1)*pageSize+1;
+                $scope.end = $scope.cur*pageSize;
+            });
+        }
+    });*/
+</script>
+<div id="page"></div>

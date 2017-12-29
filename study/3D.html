@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态正方体</title>
+    <!-- http://www.cnblogs.com/jarson-7426/p/5699209.html animation: rotate-frame 30s linear infinite;-->
+    <style>
+        .rect-wrap {
+            position: relative;
+            margin:50px;
+            perspective:1000px;
+            border:1px solid red;
+            font-size: 5rem;
+        }
+        .container {
+            animation: rotate-frame 60s linear infinite;
+            position: relative;
+            margin-left:20%;
+            width: 800px;
+            height: 800px;
+            border:1px solid green;
+            transform-style: preserve-3d;
+            transform-origin: 50% 50% 200px; //设置3d空间的原点在平面中心再向Z轴移动200px的位置
+        }
+        .slide {
+            text-align: center;
+            width: 400px;
+            height: 400px;
+            position: absolute;  //定位
+        }
+        .top {
+            background-image: url("img/1.jpg");
+            background-size: 400px 400px;
+            line-height: 400px;
+            left: 200px;
+            top: -200px;
+            transform: rotateX(-90deg);
+            transform-origin: bottom;
+        }
+        .bottom {
+            background-image: url("img/2.jpg");
+            background-size: 400px 400px;
+            line-height: 400px;
+            left: 200px;
+            top:600px;
+            transform: rotateX(90deg);
+            transform-origin: top;
+        }
+        .left {
+            background-image: url("img/3.jpg");
+            background-size: 400px 400px;
+            line-height: 400px;
+            left: -200px;
+            top: 200px;
+            transform: rotateY(90deg);
+            transform-origin: right;
+        }
+        .right {
+            background-image: url("img/4.jpg");
+            background-size: 400px 400px;
+            line-height: 400px;
+            left: 600px;
+            top: 200px;
+            transform: rotateY(-90deg);
+            transform-origin: left;
+        }
+        .front {
+            left: 200px;
+            top: 200px;
+            background-image: url("img/5.jpg");
+            background-size: 400px 400px;
+            line-height: 400px;
+            transform: translateZ(400px);  //立方体前面正对着屏幕，所以不用旋转，只需向Z轴前移动距离
+        }
+        .back {
+            background-image: url("img/6.jpg");
+            background-size: 400px 400px;
+            line-height: 400px;
+            left: 200px;
+            top: 200px;
+            transform: translateZ(0);   //立方体后面正对着屏幕，所以不用旋转，只需向Z轴后移动距离
+        }
+
+        @keyframes rotate-frame {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            10% {
+                transform: rotateX(0deg) rotateY(180deg);
+            }
+            20% {
+                transform: rotateX(-180deg) rotateY(180deg);
+            }
+            30% {
+                transform: rotateX(-360deg) rotateY(180deg);
+            }
+            40% {
+                transform: rotateX(-360deg) rotateY(360deg);
+            }
+            50% {
+                transform: rotateX(-180deg) rotateY(360deg);
+            }
+            60% {
+                transform: rotateX(90deg) rotateY(180deg);
+            }
+            70% {
+                transform: rotateX(0deg) rotateY(180deg);
+            }
+            80% {
+                transform: rotateX(90deg) rotateY(90deg);
+            }
+            90% {
+                transform: rotateX(90deg) rotateY(0deg);
+            }
+            100% {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+        }
+    </style>
+    <style>
+        .news-img-a, .adsSet-a {
+            border:1px solid red;
+            position: relative;
+            display: inline-block;
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        .news-img,.adsSet-img{
+            border:1px solid green;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            transition: all 0.2s linear;
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+<img class="img1" src="img/3.jpg" width="40px" height="40px" alt="八仙花"/>鼠标移过来，看看图片效果。
+<a  class="news-img-a">
+    <img  class="news-img" src="img/3.jpg" width="400px" height="400px" alt="八仙花"/>鼠标移过来，看看图片效果。
+</a>
+<div class="rect-wrap"> 3D视野空间宽1600px <!-- 舞台元素，设置perspective，让其子元素获得透视效果。-->
+    <div class="container">元素舞台800*800,正方体800*800*800px <!--容器，设置transform-style: preserve-3d，让其子元素在3D空间呈现-->
+        <div class="slide top"><!--<img src="img/1.jpg" width="400px" height="400px" alt="沙漠"/>-->顶面</div>   <!--立方体的六个面-->
+        <div class="bottom slide"><!--<img src="img/2.jpg" width="400px" height="400px" alt="菊花"/>-->底面</div>
+        <div class="left slide"><!--<img src="img/3.jpg" width="400px" height="400px" alt="八仙花"/>-->左面</div>
+       <div class="right slide"><!--<img src="img/4.jpg" width="400px" height="400px" alt="水母"/>-->右面</div>
+        <div class="front slide"><!--<img src="img/5.jpg" width="400px" height="400px" alt="考拉"/>-->前面</div>
+        <div class="back slide"><!--<img src="img/6.jpg" width="400px" height="400px" alt="灯塔"/>-->后面</div>
+    </div>
+</div>x
+<style>
+    <!---->
+    img{
+        height:400px;
+        width:400px;
+        transition:  1s height, 1s width;
+    }
+    img:hover{
+        height: 650px;
+        width: 650px;
+    }
+</style>
+
+</body>
+</html>

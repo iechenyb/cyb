@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录密码验证</title>
+</head>
+<body onload="checkEnter()">
+<script>
+    passwordRegex= /^[A-Za-z0-9!_-]{8,20}$/;//密码的匹配规则
+    digitRegex=/[0-9]/;
+    letterRegex=/[a-zA-Z]/;
+    speCharRegex=/[#@-_!]/;
+    password_min_len=8;
+    password_max_len=20;;
+    function checkPassword(password) {
+        if (passwordRegex == '' || passwordRegex == null || passwordRegex == undefined) {
+            alert("密码不能为空！");
+            return false;
+        }
+        if(password.length<password_min_len||password.length>password_max_len){
+            alert(password+"长度最小值为"+password_min_len+",最大长度为"+password_max_len);
+            return false;
+        }
+        if (!digitRegex.test(password) || !letterRegex.test(password) || !speCharRegex.test(password)) {
+            alert(password+"必须同时包含字母、特殊字符" + speCharRegex + "和数字三种字符!");
+            return false;
+        }
+        if(password.match(passwordRegex)==null){//完全匹配没有值
+            alert(password+"必须同时包含字母、特殊字符" + speCharRegex + "和数字三种字符!");
+            return false;
+        }
+        return true;
+    }
+    function checkEnter(){
+        test_val = "12ab!12345";
+        console.log(test_val+" is valid "+checkPassword(test_val));//合法的密码
+        test_val = "ac12ab!12345";
+        console.log(test_val+" is valid "+checkPassword(test_val));//合法的密码
+        test_val = "-_12ab!12345";
+        console.log(test_val+" is valid "+checkPassword(test_val));//合法的密码
+        test_val = "12ab!12345,";
+        console.log(test_val+" is valid "+checkPassword(test_val));//合法的密码
+        test_val = "12345678";
+        console.log(test_val+" is valid "+checkPassword(test_val));//合法的密码
+        test_val = "abcdefgh";
+        console.log(test_val+" is valid "+checkPassword(test_val));//合法的密码
+        test_val = "123";
+        console.log(test_val+" is valid "+checkPassword(test_val));//合法的密码
+        test_val = "12ab!1234512345678902134567554";
+        console.log(test_val+" is valid "+checkPassword(test_val));//合法的密码
+    }
+</script>
+</body>
+</html>
