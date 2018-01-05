@@ -10,13 +10,8 @@ function treeController($scope,$state){
             type: 'folder',
             products: [
                 {
-                    title: 'iPhone',
-                    url:"http://localhost:3000/extjs/phone/vi-view/ex4/list.html",
-                    type: 'item'
-                },
-                {
                     title: '最新成绩',
-                    url:"http://localhost:3000/extjs/phone/vi-view/lhmj/lscj/index.html#PageTab",
+                    url:"lhmj/zxcj/lscj/index.html#/PageTab",
                     type: 'item'
                 },
                 {
@@ -59,7 +54,8 @@ function treeController($scope,$state){
 
     $('#firstTree').on('selected.tree.amui', function (event, data) {
         console.log(data.selected[0].title);
-        $("#to").attr("href",data.selected[0].url);
+        var context = 'http://localhost:3000/web/';
+        $("#to").attr("href",context+data.selected[0].url);
         /*$("#to").click();*/
        document.getElementById("to").click();
        // $state.go('index', {page: 'dlf'});//整个页面刷新
