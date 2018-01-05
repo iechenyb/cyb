@@ -3,9 +3,6 @@
 <head>
     <title></title>
 	<meta http-equiv="Content-Type" content="text/html;charset=gbk"/>
-	<script src="socket.io.js"></script>
-    <script src="jquery-1.7.2.min.js"></script>
-    <script src="angular-1.0.1.min.js"></script>
 	<link href="common.css" rel='stylesheet' type='text/css' />
 </head>
 <body ng-controller="list">
@@ -15,7 +12,8 @@
  </div>
 <script>
 function lookup(){
-  url ='https://api.47ks.com/webcloud/?v='+document.getElementById('url').value;
+//https://api.47ks.com/webcloud/?v=
+  url ='http://player.jidiaose.com/supapi/iframe.php?v='+document.getElementById('url').value;
   document.getElementById('page9090').href=url;
   document.getElementById('page9090').click();
 }

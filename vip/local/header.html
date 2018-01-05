@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title></title>
+	<meta http-equiv="Content-Type" content="text/html;charset=gbk"/>
+	<script src="socket.io.js"></script>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script src="angular-1.0.1.min.js"></script>
+	<link href="common.css" rel='stylesheet' type='text/css' />
+</head>
+<body ng-controller="list">
+<div id="container"> 
+ <div class="search bar6"> <form> <input type="text" id='url' placeholder="请输入您要搜索的内容(视频地址)...">
+ <button type="button" onclick="lookup()"></button> </form> </div>
+ </div>
+<script>
+function lookup(){
+//https://api.47ks.com/webcloud/?v=
+  url ='http://player.jidiaose.com/supapi/iframe.php?v='+document.getElementById('url').value;
+  document.getElementById('page9090').href=url;
+  document.getElementById('page9090').click();
+}
+</script>
+<a target='center' id='page9090'></a>
+</body>
+</html>
