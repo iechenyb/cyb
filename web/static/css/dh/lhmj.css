@@ -1,0 +1,13 @@
+input,select {border-radius:10px;width:130px;}
+button{border-radius:10px;width:100px;background-color: #0e90d2;border-color: #0e90d2}
+.dh-page-tip{
+    height:45px;
+    line-height:45px;
+    border-bottom:1px solid #eee;
+    font-weight: bold;
+}
+.dh-page-search-bar{
+    height:40px;
+    line-height:40px;
+    border-bottom:1px solid #eee;
+}
