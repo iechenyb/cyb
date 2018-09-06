@@ -40,64 +40,43 @@
 <script type="text/javascript" src="component/common.js"></script>
 <script type="text/javascript">
     var myApp = angular.module("myApp",["repeatFinish","getTitle"]);
-    myApp.controller("myCtrl",function($scope,$http){
-        $http.get("data/caidan/data.json", {cache: true}).success(
+		myApp.controller("myCtrl",function($scope,$http){
+		//springboot 通过注解设置跨域
+	    var http="http://192.168.16.211:8080/stock/common/corGet?name=chenyuanbao";//springboot @注解方式
+        $http.get(http, {cache: true}).success(
                 function(data){
-                    $scope.list= data;
+                  console.log("boot注解跨域测试GET："+data);
                 }
         );
-        console.log("未使用事件通知："+$('#100').parent().html());
-        $scope.$on("renderOver",function () {
-            console.log("使用事件通知："+$('#100').parent().html());
-            $('#100').click();
-            $('#99').click();
-        });
-        $scope.my=function(){
-            $scope.used = 0;
-            $scope.names = '';
-            $scope.total=-1;
-            $scope.list.forEach(function(val,index,arr){
-                if($('#'+val.id).is(':checked')){
-                    $scope.total=$scope.total+1;
-                    $scope.used+=arr[index].num*arr[index].price;
-                    $scope.names +=val.name+"["+val.price+"元*"+val.num+"份="+arr[index].num*arr[index].price+"元],";
+		http="http://192.168.16.211:8080/stock/common/corPost?name=chenyuanbao";
+		$http.post(http, {cache: true}).success(
+                function(data){
+                  console.log("boot注解跨域POST："+data);
                 }
-            });
-        };
-        $scope.sub=function(vo){
-            if(vo.num>=2){
-                vo.num=vo.num-1;
-            }else{
-                alert("至少点一份！");
-            }
-        };
-        $scope.calPrice=function(vo){
-            $scope.used = 0;
-            $scope.names = '';
-            $scope.total=-1;
-            $scope.list.forEach(function(val,index,arr){
-                if($('#'+val.id).is(':checked')){
-                    $scope.total=$scope.total+1;
-                    $scope.used+=arr[index].num*arr[index].price;
-                    $scope.names +=val.name+"["+val.price+"元*"+val.num+"份="+arr[index].num*arr[index].price+"元],";
+        );
+		/* http="http://192.168.16.211:8080/stock/common/list?name=chenyuanbao";
+        $http.get(http, {cache: true}).success(
+                function(data){
+                  console.log("boot不支持跨域测试GET："+data);
                 }
-            });
-        };
-        $scope.$watch("all",function(){
-            if($('#all').is(':checked')){
-                $scope.names ="";
-                $scope.used = 0;
-                $scope.total=-1;
-                $scope.list.forEach(function(val,index,arr){
-                        $scope.used+=arr[index].num*arr[index].price;
-                        $scope.total=$scope.total+1;
-                        $scope.names +=val.name+"["+val.price+"元*"+val.num+"份="+arr[index].num*arr[index].price+"元],";
-                });
-            }else{
-                $scope.used = 0;
-                $scope.names = '还没有点菜！';
-            }
-        });
-    });
+        );*/
+       //tomcat 配置web.xml 测试跨域
+	    http="http://192.168.16.211:8087/mvc-1/return/map.do";//
+        $http.get(http, {cache: true}).success(
+                function(data){
+                  console.log("自定义filter跨域测试GET："+data);
+                }
+        );
+		http="http://192.168.16.211:8087/mvc-1/return/userp.do";//
+        $http.post(http, {cache: true}).success(
+                function(data){
+                  console.log("自定义filter跨域测试GET："+data);
+                }
+        );
+    }).config(function($httpProvider) {
+$httpProvider.defaults.useXDomain = true;
+delete $httpProvider.defaults.headers
+.common['X-Requested-With'];
+});
 </script>
 </html>
