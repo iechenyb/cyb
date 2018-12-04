@@ -1,0 +1,15 @@
+接下来，让我们来列举下要进行实验的混淆和反混淆工具，本文中会实验 4 个混淆工具和 2 个反混淆工具。
+
+混淆工具：
+
+YUI Compressor
+Google Closure Compiler
+UglifyJS
+JScrambler
+反混淆工具：
+
+jsbeautifier.org
+JSDetox
+以上除了 JScrambler 是商业软件需要付费使用外，其余全部为免费软件。
+
+缩小和混淆

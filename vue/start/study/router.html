@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+<script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/2.7.0/vue-router.min.js"></script>
+</head>
+<body>
+<div id="app">
+  <h1>Hello App!</h1>
+  <p>
+    <!-- 使用 router-link 组件来导航. -->
+    <!-- 通过传入 `to` 属性指定链接. -->
+    <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
+    <router-link to="/foo">Go to Foo</router-link>
+    <router-link to="/bar">Go to Bar</router-link>
+	<router-link to="/aaa">extend</router-link>
+	<router-link to="/bbb">htmltemplate</router-link>
+  </p>
+  <template id="aaaa">
+	template html content!
+  </template>
+  <lt-News></lt-News>
+  <!-- 路由出口 -->
+  <!-- 路由匹配到的组件将渲染在这里 -->
+  <router-view></router-view>
+</div>
+<script typeof="text/x-template" id="ltNews">
+    <div>
+        <li v-for="(v,k) in news">
+        {{v.title}}
+        <button @click="del(k)">删除</button>
+    </li>
+    </div>
+</script>
+<script>
+// 0. 如果使用模块化机制编程，導入Vue和VueRouter，要调用 Vue.use(VueRouter)
+var ltNews = {
+        template: "#ltNews",
+        data() {
+            return {
+                news: [
+                    {title: 'lantianCms'},
+                    {title: 'lantianPhp'}
+                ]
+            };
+        },
+        methods: {
+            del(k) {
+                this.news.splice(k, 1);
+            }
+        }
+    };
+// 1. 定义（路由）组件。
+// 可以从其他文件 import 进来
+const Foo = { template: '<div>foo</div>' }
+const Bar = { template: '<div>bar</div>' }
+const Check = { template: '#checkbox-template' }
+var  AAA = Vue.extend({
+  template:'<h1>extend template</h1>'
+});
+var  BBB = Vue.extend({
+  template:'#aaa'
+});
+// 2. 定义路由
+// 每个路由应该映射一个组件。 其中"component" 可以是
+// 通过 Vue.extend() 创建的组件构造器，
+// 或者，只是一个组件配置对象。
+// 我们晚点再讨论嵌套路由。
+const routes = [
+  { path: '/foo', component: Foo },
+  { path: '/bar', component: Bar },
+  { path: '/aaa', component: AAA},
+  { path: '/bbb', component: BBB}
+]
+
+// 3. 创建 router 实例，然后传 `routes` 配置
+// 你还可以传别的配置参数, 不过先这么简单着吧。
+const router = new VueRouter({
+  routes // （缩写）相当于 routes: routes
+})
+
+// 4. 创建和挂载根实例。
+// 记得要通过 router 配置参数注入路由，
+// 从而让整个应用都有路由功能
+const app = new Vue({
+  router
+}).$mount('#app')
+Vue.component('my-checkbox', {
+  template: '#checkbox-template',
+  data() {
+    return { checked: false, title: 'Check me' }
+  },
+  methods: {
+    check() { this.checked = !this.checked; }
+  }
+});
+
+
+// 现在，应用已经启动了！
+</script>
+<script type="text/x-template" id="checkbox-template">
+
+  <div class="checkbox-wrapper" @click="check">
+
+    <div :class="{ checkbox: true, checked: checked }"></div>
+
+    <div class="title">{{ title }}</div>
+
+  </div>
+
+</script>
+</body>
+</html>

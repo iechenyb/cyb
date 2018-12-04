@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>helloform_Vue</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+       	<script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+    </head>
+    <body>
+	<div class="hello">
+		<ul>
+			<form @submit.prevent="submit">
+				<input type="text" name="name" v-model="inputtext.name">
+				<input type="password" name="password" v-model="inputtext.password">
+				<input type="submit" value="Ìá½»">
+			</form>
+		</ul>
+	</div>
+	<script>
+		var vm = new Vue({
+			el: '.hello',
+			data: {
+				inputtext:{}
+			},
+			methods: {
+				submit: function() {
+					console.log(this.inputtext);
+				}
+			},
+		})
+	</script>
+ 
+	</body>
+</html>

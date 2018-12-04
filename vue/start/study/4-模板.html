@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+	<script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+	<style>
+.class1{
+  background: #444;
+  color: #eee;
+}
+</style>
+</head>
+<body>
+<div id="app">
+	<label for="r2">修改显示</label><input type="checkbox" v-model="seen" id="r2">
+    <p v-if="seen">现在你看到我了</p>
+    {{5+5}}<br>
+    {{ ok ? 'YES' : 'NO' }}<br>
+    {{ message.split('').reverse().join('') }}
+    <div v-bind:id="'list-' + id">菜鸟教程</div>
+    <div v-html="htmlContent"></div>
+	<p>{{ message }}</p>
+    <input v-model="message">
+	<label for="r1">修改颜色</label><input type="checkbox" v-model="class1" id="r1">
+   <br><br>
+	<div v-bind:class="{'class1': class1}">
+    v-bind:class 指令
+  </div>
+   <pre><a v-bind:href="url" v-bind:target="target">菜鸟教程</a>
+   <a :href="url">菜鸟教程-缩写</a>
+   </pre>
+   <a v-on:click="doSomething">点击试试</>
+   <!-- 缩写 -->
+  <a @click="doSomething">点击-缩写</a>
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">反转字符串</button>
+	<hr>
+	过滤器： {{ message | capitalize }}
+	<hr/>
+	<runoob message="hello!" v-bind:message="message"></runoob><!--如何给组件动态的传参数！！！-->
+	<child message="hello!"></child><br/>
+	
+   <hr> 循环组件：
+   <todo-item v-for="item in sites" v-bind:todo="item"></todo-item>
+   <input v-focus/>
+   <hr>
+   <div v-runoob1:hello.a.b="message">
+</div>
+<script>
+Vue.directive('runoob1', {
+  bind: function (el, binding, vnode) {
+    var s = JSON.stringify
+    el.innerHTML =
+      'name: '       + s(binding.name) + '<br>' +
+      'value: '      + s(binding.value) + '<br>' +
+      'expression: ' + s(binding.expression) + '<br>' +
+      'argument: '   + s(binding.arg) + '<br>' +
+      'modifiers: '  + s(binding.modifiers) + '<br>' +
+      'vnode keys: ' + Object.keys(vnode).join(', ')
+  }
+});
+// 注册
+Vue.component('runoob', {
+  template: '<h1>自定义组件!</h1>'
+});
+Vue.component('child', {
+  // 声明 props
+  props: ['message'],
+  // 同样也可以在 vm 实例中像 "this.message" 这样使用
+  template: '<span>{{ message }}</span>'
+})
+var Child1 = {
+ // 声明 props 
+  props: ['message'],
+  template: '<h1>自定义组件!-{{message}}</h1>' //this.message
+}
+Vue.component('todo-item', {
+  props: ['todo'],
+  template: '<li>{{ todo.text }}</li>'
+});
+Vue.component('example', {
+  props: {
+    // 基础类型检测 （`null` 意思是任何类型都可以）
+    propA: Number,
+    // 多种类型
+    propB: [String, Number],
+    // 必传且是字符串
+    propC: {
+      type: String,
+      required: true
+    },
+    // 数字，有默认值
+    propD: {
+      type: Number,
+      default: 100
+    },
+    // 数组／对象的默认值应当由一个工厂函数返回
+    propE: {
+      type: Object,
+      default: function () {
+        return { message: 'hello' }
+      }
+    },
+    // 自定义验证函数
+    propF: {
+      validator: function (value) {
+        return value > 10
+      }
+    }
+  }
+});
+// 注册一个全局自定义指令 v-focus
+Vue.directive('focus', {
+  // 当绑定元素插入到 DOM 中。
+  inserted: function (el) {
+    // 聚焦元素
+    el.focus()
+  }
+})
+new Vue({
+  el: '#app',
+  data: {
+    seen:true,
+    ok: true,
+	id : 1,
+	target:"_blank",
+    message: 'abcde',
+	htmlContent:"<h1>大号字体</h1>",
+    class1: false,
+	url:"http://www.baidu.com",
+	sites: [
+      { text: 'Runoob' },
+      { text: 'Google' },
+      { text: 'Taobao' }
+    ]
+  },
+  methods: {
+    reverseMessage: function () {
+      this.message = this.message.split('').reverse().join('')
+    }
+  },
+  filters: {
+    capitalize: function (value) {
+      if (!value) return ''
+      value = value.toString()
+      return value.charAt(0).toUpperCase() + value.slice(1)
+    }
+  },components: {
+    // <runoob> 将只在父模板可用
+    'runoob': Child1
+  },directives: {
+    // 注册一个局部的自定义指令 v-focus
+    focus: {
+      // 指令的定义
+      inserted: function (el) {
+        // 聚焦元素
+        el.focus()
+      }
+    }
+  }
+});
+function doSomething( ){
+ alert(1234);
+}
+</script>
+</body>
+</html>
