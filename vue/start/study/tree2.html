@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js tree view example</title>
+    <style>
+     .blk_border{
+  border:1px solid #d1dbe5;
+  padding-bottom: 15px;
+}
+.blk_border ul{
+  padding-left: 15px;
+}
+ul {
+  list-style: none;
+}
+i.icon {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+.icon.folder {
+  background-image: url(../../images/close.png);
+}
+.icon.folder-open {
+  background-image: url(../../images/open.png);
+}
+.tree-menu li {
+  line-height: 1.5;
+}
+li.btnCls {
+  float: left;
+  margin-right: 10px;
+}
+li.menuCls {
+  clear: both;
+  line-height:30px;
+}
+.checkCls {
+  vertical-align: middle;
+}
+.el-tabs__content{
+  color:#48576A;
+}
+    </style>
+    <!-- Delete ".min" for console warnings in development -->
+    	<script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+		<script src="tree2.js"></script>
+  </head>
+  <body>
+    <!-- item template -->
+    <script type="text/x-template" id="item-template">
+       <li :class="[isButton, hasBorder]" style="list-style:none;">
+      <span @click="toggle" v-show="model.menuLevel!==1" >
+      <i v-if="isFolder" class="icon" :class="[open ? 'folder-open': 'folder']" style="margin-bottom: 3px;"></i>
+      <i v-if="!isFolder" class="icon file-text"></i>
+      <input type="checkbox" class="checkCls" @click.stop="selTree(model)" :id="'menu'+model.id" :class="'group'+label">
+      {{ model.menuName }}
+    </span>
+    <ul v-show="open" v-if="isFolder">
+      <tree-menu v-for="(item, index) in model.childNode" :model="item" :key="index" :menuList="menuList" :label="label" :selectKeys="selectKeys" ></tree-menu>
+    </ul>
+    </script>
+    <p>(You can double click on an item to turn it into a folder.)</p>
+    <!-- the demo root element -->
+     <el-tab-pane v-for="(menu, index) in theModel" :key="index"  :label="menu.menuName">
+        <my-tree :model="menu" ref="tree" :menuList="menu" :label="index" :selectKeys="selectKeys"></my-tree>
+      </el-tab-pane>
+    <!-- demo code -->
+   
+  </body>
+</html>

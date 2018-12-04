@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<!-- 参数传递测试-->
+<script>
+    var username = '<%=title%>';
+    console.log(username);
+</script>
+<body>
+页面静态信息:test page<br>
+标题信息：<%=title%><br>
+列表信息:<%
+  for(var i=0;i < list.length; i++){
+%>
+    <ul><%=list[i]%></ul>
+  <%
+  }
+  %>
+</body>
+</html>

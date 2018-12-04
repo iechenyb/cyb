@@ -1,0 +1,68 @@
+{
+  "d": {
+    "total": 11,
+    "curPage": 1,
+    "pages": 1,
+    "pageSize": 0,
+    "list": [
+      {
+        "roleName": "ROLE_SUPER_ADMIN",
+        "description": "ROLE_SUPER_ADMIN",
+        "id": 10
+      },
+      {
+        "roleName": "ROLE_ADMIN",
+        "description": "ROLE_ADMIN",
+        "id": 11
+      },
+      {
+        "roleName": "ROLE_YWGLB",
+        "description": "ROLE_YWGLB",
+        "id": 12
+      },
+      {
+        "roleName": "ROLE_YWGLB-1",
+        "description": "ROLE_YWGLB-1",
+        "id": 13
+      },
+      {
+        "roleName": "ROLE_YWGLB-102",
+        "description": "ROLE_YWGLB-102",
+        "id": 14
+      },
+      {
+        "roleName": "中文",
+        "description": "123",
+        "id": 27
+      },
+      {
+        "roleName": "1234",
+        "description": "1234123123",
+        "id": 30
+      },
+      {
+        "roleName": "123456123321",
+        "description": "1234561234321123",
+        "id": 31
+      },
+      {
+        "roleName": "1",
+        "description": "1",
+        "id": 37
+      },
+      {
+        "roleName": "12",
+        "description": "12",
+        "id": 38
+      },
+      {
+        "roleName": "aaa",
+        "description": "中文测试",
+        "id": 39
+      }
+    ]
+  },
+  "ec": "0",
+  "es": "",
+  "time": 5
+}

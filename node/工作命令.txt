@@ -1,0 +1,43 @@
+node --version
+npm -v
+npm install express
+npm install mysql
+npm install axios
+设置代理，下载web模块express
+npm config set registry https://registry.npm.taobao.org
+npm install -g express-generator
+cnpm install -g vue-cli
+npm install webpack -g
+webpack -v
+vue -V
+npm -v
+node -v
+vue init webpack my-project
+cnpm install -g webpack
+https://www.cnblogs.com/wanglu/p/7062081.html vue安装打包
+转html视图npm install vue webpack babel-cli babel-loader babel-preset-es2015 html-webpack-plugin --save-dev
+npm install ejs
+C:\Users\DHUser>cd C:\Program Files\nodejs\node_global\node_modules
+C:\Program Files\nodejs\node_global\node_modules>npm install --save ejs
++ ejs@2.6.1
+added 1 package in 0.485s
+
+简单测试：
+$node
+$> console.log('aaaa')
+aaaa
+undefined
+
+Error creating Node.js Express App. Cannot find C:\Users\admin\AppData\Local\Temp\intellij-express-generator\node_modules\express-generator\bin\express
+
+
+vue创建
+
+1 npm install
+2  npm install vue webpack babel-cli babel-loader babel-preset-es2015 html-webpack-plugin --save-dev
+解决方法：
+方法1： 使用命令行 方式创建项目，再使用以上 IDE 打开即可（已亲测试成功）
+方法2：如上图 构建项目时， Version 选择 4.14.1 版本或以下（必须下载大于等于该版本的 express-generator）
+
+心得：
+需要进一步的学习和贯彻习近平新时代中国特色社会主义思想，领悟精髓，联系实际，把初心使命牢记心间，把纪律规矩挺在前面，同时。还需要增强党性锻炼，提高政治修养、政治觉悟和政治担当。

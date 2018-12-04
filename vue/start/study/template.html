@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件之子组件中data使用实例与text-xtemplate的使用方法</title>
+	<script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+</head>
+<body>
+<!--
+    组件：可互用、维护省力
+-->
+<div id="lantian">
+    <!--局部组件的调用：使用组件的名时，如果是驼峰式的写法，需要用 - 分开-->
+    <lt-News></lt-News>
+    <hr>
+    <lt-News></lt-News>
+    <hr>
+    <lt-News></lt-News>
+ 
+</div>
+<script typeof="text/x-template" id="ltNews">
+    <div>
+        <li v-for="(v,k) in news">
+        {{v.title}}
+        <button @click="del(k)">delete</button>
+    </li>
+    </div>
+</script>
+<script>
+    var ltNews = {
+        template: "#ltNews",
+        data() {
+            return {
+                news: [
+                    {title: 'lantianCms'},
+                    {title: 'lantianPhp'}
+                ]
+            };
+        },
+        methods: {
+            del(k) {
+                this.news.splice(k, 1);
+            }
+        }
+    };
+    new Vue({
+        el: "#lantian", //根组件，其他的就是子组件
+        //定义局部组件：
+        components: {ltNews}
+    });
+</script>
+ 
+</body>
+</html>

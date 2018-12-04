@@ -1,0 +1,26 @@
+{
+  "data": [{
+    "id": "1",
+    "name": "Root",
+    "children": [
+      {
+        "id": "2",
+        "name": "Node2"
+      },
+      {
+        "id": "3",
+        "name": "Node3"
+      },
+      {
+        "id": "4",
+        "name": "Node4",
+        "children": [
+          {
+            "id": "5",
+            "name": "Node5"
+          }
+        ]
+      }
+    ]
+  }]
+}

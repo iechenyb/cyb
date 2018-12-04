@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>点餐</title>
+    <link rel="stylesheet" href="cdn/amazeui.min.css">
+    <style>
+        th,td{
+            text-align: center;
+            color: green;
+            font-family: "Adobe 宋体 Std L";
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body ng-controller="myCtrl" ng-init="ys=150;used=0;names='还没有点菜！';total=0" style="background-color: beige">
+
+</body>
+<script type="text/javascript" src="cdn/jquery.min.js"></script>
+<script type="text/javascript" src="cdn/angular.min.js"></script><!--1.5.7-->
+<script type="text/javascript" src="cdn/angular-ui-router.min.js"></script><!--0.3.1-->
+<script type="text/javascript">
+    var myApp = angular.module("myApp",[]);
+		myApp.controller("myCtrl",function($scope,$http){
+		//springboot 通过注解设置跨域
+	    /*var http="http://192.168.16.211:8080/stock/common/corGet?name=chenyuanbao";//springboot @注解方式
+        $http.get(http, {cache: true}).success(
+                function(data){
+                  console.log("boot注解跨域测试GET："+data);
+                }
+        );
+		http="http://192.168.16.211:8080/stock/common/corPost?name=chenyuanbao";
+		$http.post(http, {cache: true}).success(
+                function(data){
+                  console.log("boot注解跨域POST："+data);
+                }
+        );*/
+		/* http="http://192.168.16.211:8080/stock/common/list?name=chenyuanbao";
+        $http.get(http, {cache: true}).success(
+                function(data){
+                  console.log("boot不支持跨域测试GET："+data);
+                }
+        );*/
+       //tomcat 配置web.xml 测试跨域
+	    /*http="http://192.168.108.221:8088/VASAnalystCenter/qutoes/post.html";//
+        $http.post(http, {cache: true}).success(
+                function(data){
+                  console.log("自定义filter跨域测试Post："+data);
+                }
+        );*/
+		http="http://localhost:8080/stock/common/String/aaa";//
+        $http.get(http, {cache: true}).success(
+                function(data){
+                  console.log("自定义filter跨域测试GET："+data);
+                }
+        );
+    });
+</script>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>点餐</title>
+    <link rel="stylesheet" href="cdn/amazeui.min.css">
+    <style>
+        th,td{
+            text-align: center;
+            color: green;
+            font-family: "Adobe 宋体 Std L";
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body ng-controller="myCtrl" ng-init="ys=150;used=0;names='还没有点菜！';total=0" style="background-color: beige">
+<table class="am-table am-table-radius am-table-bd">
+<tr><td colspan="5">预算:{{ys}}元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;已点:{{used}}元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    剩余：{{ys-used}}元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 共：{{total}}个菜</td></tr>
+<tr><td colspan="5">{{names}}</td></tr>
+<tr><th><input type="checkbox" ng-model="all" id="all"></th><th>菜名</th><th>数量</th><th>价格</th><th>总价</th></tr>
+<tr ng-repeat="vo in list" on-finish-render="renderOver">
+    <td><input type="checkbox" ng-checked="all"  id="{{vo.id}}" ng-click="calPrice(vo)"></td>
+    <td width="50%">{{vo.name}}</td>
+    <td>{{vo.price}}/份</td>
+    <td align="center">
+        <a href="javascript:void(0)" ng-click="sub(vo)">-</a>
+        <input type="text" value="{{vo.num}}"  ng-model="vo.num" ng-change="my()"  style="width: 50px;text-align: center;"/>
+        <a href="javascript:void(0)" ng-click="vo.num=vo.num+1" >+</a></td>
+    <td>{{vo.num*vo.price}}元</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" src="cdn/jquery.min.js"></script>
+<script type="text/javascript" src="cdn/angular.min.js"></script><!--1.5.7-->
+<script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.min.js"></script>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.3.0-beta.8/angular-animate.min.js"></script>
+<script type="text/javascript" src="cdn/angular-ui-router.min.js"></script><!--0.3.1-->
+<script type="text/javascript" src="https://lscho.github.io/am-page/dist/amazeui.page.js"></script>
+<script type="text/javascript" src="component/common.js"></script>
+<script type="text/javascript">
+    var myApp = angular.module("myApp",["repeatFinish","getTitle"]);
+    myApp.controller("myCtrl",function($scope,$http){
+        $http.get("data/caidan/data.json", {cache: true}).success(
+                function(data){
+                    $scope.list= data;
+                }
+        );
+        console.log("未使用事件通知："+$('#100').parent().html());
+        $scope.$on("renderOver",function () {
+            console.log("使用事件通知："+$('#100').parent().html());
+            $('#100').click();
+            $('#99').click();
+        });
+        $scope.my=function(){
+            $scope.used = 0;
+            $scope.names = '';
+            $scope.total=-1;
+            $scope.list.forEach(function(val,index,arr){
+                if($('#'+val.id).is(':checked')){
+                    $scope.total=$scope.total+1;
+                    $scope.used+=arr[index].num*arr[index].price;
+                    $scope.names +=val.name+"["+val.price+"元*"+val.num+"份="+arr[index].num*arr[index].price+"元],";
+                }
+            });
+        };
+        $scope.sub=function(vo){
+            if(vo.num>=2){
+                vo.num=vo.num-1;
+            }else{
+                alert("至少点一份！");
+            }
+        };
+        $scope.calPrice=function(vo){
+            $scope.used = 0;
+            $scope.names = '';
+            $scope.total=-1;
+            $scope.list.forEach(function(val,index,arr){
+                if($('#'+val.id).is(':checked')){
+                    $scope.total=$scope.total+1;
+                    $scope.used+=arr[index].num*arr[index].price;
+                    $scope.names +=val.name+"["+val.price+"元*"+val.num+"份="+arr[index].num*arr[index].price+"元],";
+                }
+            });
+        };
+        $scope.$watch("all",function(){
+            if($('#all').is(':checked')){
+                $scope.names ="";
+                $scope.used = 0;
+                $scope.total=-1;
+                $scope.list.forEach(function(val,index,arr){
+                        $scope.used+=arr[index].num*arr[index].price;
+                        $scope.total=$scope.total+1;
+                        $scope.names +=val.name+"["+val.price+"元*"+val.num+"份="+arr[index].num*arr[index].price+"元],";
+                });
+            }else{
+                $scope.used = 0;
+                $scope.names = '还没有点菜！';
+            }
+        });
+    });
+</script>
+</html>
