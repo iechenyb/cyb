@@ -1,0 +1,14 @@
+shell脚本的执行方法 
+当shell脚本以非交互的方式运行时，它会先查找环境变量ENV，该变量指定了一个环境文件（通常是.bashrc）,然后从该环境变量文件开始执行，当读取了ENV文件后，SHELL才开始执行shell脚本中的内容。
+
+shell脚本的执行通常可以采用以下三种方法：
+
+bash script-name 或者 sh script-name
+path/script-name 或者 ./script-name(当前路径下执行)
+source script-name 或 . script-name（注意符号“.”与 script-name之间有空格）
+第一种方法是脚本文件本身没有可执行权限时，通常使用的方法；
+
+第二种方法需要先将脚本文件的权限改为可执行，然后通过脚本路径就可以直接执行；
+
+第三中方法是在当前shell环境中直接执行，而不是新创建一个子shell，当我们需要在一个脚本中使用另一个脚本中的变量的时候就使用第三种方法，例如创建如下脚本，其中定义了chars变量：
+http://blog.csdn.net/Erica_1230/article/details/71330725

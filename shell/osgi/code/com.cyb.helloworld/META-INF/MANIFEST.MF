@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Helloworld
+Bundle-SymbolicName: com.cyb.helloworld
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.cyb.helloworld.Activator
+Bundle-Vendor: iechenyb
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: org.osgi.framework;version="1.3.0"
+Export-Package: com.cyb.helloworld;version="1.0"

@@ -1,0 +1,11 @@
+docker start|stop 容器名或者id
+restart docker  docker重启
+docker -v  -查看docker版本
+--启动mysql容器的时候挂载一个存储数据库文件的目录（使用旧的数据库文件）
+--  -d 返回容器id  -e 传递环境变量(可以多个) 格式 -e JAVA_HOME=/user/jdk
+docker run -d -p 3306:3306 -v host_dir:container_name_dir   (/var/lib/docker/vfs/dir/mydata:/var/lib/mysql)  宿主目录:容器目录映射 ，防止删除db容器的时候删除数据库数据。
+docker exec -it 容器id或者名称  /bin/bash  用交换模式进入容器
+docker ps 查看up下的容器情况
+docker rm 容器id或者名称  
+docker build -t iechenyb/website:1.0 ./x/y/   后者为dockerfile目录，默认为.，即当前目录。
+docker run -d -p 80:80 --name tomcat80 tomcat:latest  后台启动tomcat

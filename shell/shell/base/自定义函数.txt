@@ -1,0 +1,7 @@
+#!/bin/sh
+#定义方法 method
+method(){
+  echo 'hello!';
+}
+#调用方法method
+method>>11.log

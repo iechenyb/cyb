@@ -1,0 +1,12 @@
+create or replace package PACK_PUB is
+
+procedure WRITE_EXECUTE_LOG(procname varchar2,sqlcode_ number,sqlerrm_ varchar2,msg varchar2,ywrq varchar2);
+
+-- 返回值：0 不匹配 1 匹配成功
+
+function FIND_ELEMENT_FROM_VARCHAR2(soure_varchar2  in varchar2,target_varchar2 in varchar2) return number;
+
+function CAL_NUMBER_OF_TRADE_DAYS(begin_date varchar2, end_date varchar2) return number;
+
+end PACK_PUB;
+

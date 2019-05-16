@@ -1,0 +1,48 @@
+docker images
+docker inspect tomcat:latest 查看镜像的详细信息
+docker rmi tomcat:latest 彻底删除镜像，存在容器的镜像是不可删除的！ -f 强行删除
+docker rmi 容器id 删除容器
+docker run ubuntu:latest echo 'sffsf' 简单的运行一个容器，显示个字符串 
+docker ps -a 查看所有的容器
+=============================================================
+docker run -it ubuntu:latest /bin/bash 用shell的方式启动容器
+进入容器e79fa5216464后，touch test 创建文件  
+exit 可以退出容器。
+docker commit -m 'add a file test' -a 'docker newbee'  e79fa5216464 test:0.1
+docker images 会多一个镜像
+docker@default:~$ docker commit -m 'add a file test' -a 'docker newbee'  e79fa5216464 test:0.1
+sha256:89fd2c4cb5a8b76d15dda04c25b8a5d70b1076872bf20d8e9328460f41451836
+docker@default:~$ docker images
+REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
+test                                   0.1                 89fd2c4cb5a8        29 seconds ago      120MB
+=============================================================
+docker create -it ubuntu:latest 创建一个容器，返回一个容器的id
+通过docker pa -a 可以查看到容器id为前12位的容器信息
+docker start 容器的id
+docker run=docker create+docker start
+docker ps -a 查看所有容器的信息
+docker ps -qa 查看所有让其的id
+docker start|stop|restart 容器id
+docker run -d ubuntu  后台运行容器
+docker attach eager_hawking（容器名称，进入容器）
+============================
+ocker@default:~$ docker export -o test_for_run.tar e6
+docker@default:~$ ls
+test_for_run.tar
+docker@default:~$ docker export e6>test_for_stop.tar
+docker@default:~$ ll
+total 198840
+-rw-------    1 docker   staff    101802496 Feb 11 07:44 test_for_run.tar
+-rw-r--r--    1 docker   staff    101802496 Feb 11 07:45 test_for_stop.tar
+docker@default:~$ 
+容器导出结束
+docker import test_for_run.tar - test/my:v1.0
+导入容器信息
+==============================
+本地仓库管理
+ docker run -d -p 5000:5000 registry 创建本地仓库
+ docker tag ubuntu:latest localhost:5000/test 将镜像重新放置到本地仓库上
+ docker push localhost:5000/test 提交镜像到仓库，其他可以访问localhost的地址可以下载该镜像文件。
+ =====================================
+ dockerfile创建镜像
+ 

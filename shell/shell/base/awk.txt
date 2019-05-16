@@ -1,0 +1,49 @@
+awk '条件类型1{动作1} 条件类型2{动作2} ...' filename
+root@iZ0z00b09p3thwZ:/chenyb# last -5
+root     pts/1        58.246.135.34    Tue Feb  6 16:10   still logged in
+root     pts/0        58.246.135.34    Mon Feb  5 16:48   still logged in
+root     pts/1        58.246.135.34    Fri Feb  2 09:38 - 16:56  (07:18)
+root     pts/0        58.246.135.34    Thu Feb  1 12:12 - 16:56 (1+04:44)
+last -n 5|awk '{print $1 "\t****" $3}'
+查看最近5条登录用户和ip地址
+root@iZ0z00b09p3thwZ:/chenyb# last -n 5|awk '{print $1 "\t****" $3}'
+root	****58.246.135.34
+root	****58.246.135.34
+root	****58.246.135.34
+root	****58.246.135.34
+	****
+wtmp	****Thu
+变量名称	代表意义
+NF	每一行($0)拥有字段总数
+NR	目前awk处理的第几行
+FS	目前分隔符，默认是空白
+运算单元	代表意义
+>	大于
+<	小于
+>=	大于等于
+<=	小于等于
+==	等于
+!=	不等于
+cat /etc/passwd|awk '{FS=":"} $3<10 {print $0}' 查询第三栏小于10的记录
+$ cat pay.txt 
+Name    1st     2nd     3th
+VBird   23000   24000   25000
+DMTsai  21000   20000   23000
+Bird2   43000   42000   41000
+第二行开始统计1,2,3栏数字总和放到第5栏
+$ cat pay.txt|awk 'NR==1{printf "%10s %10s %10s %10s %10s\n",$1,$2,$3,$4,"Total"} \
+NR>=2{total=$2+$3+$4
+> printf "%10s %10d %10d %10d %10.2f\n",$1,$2,$3,$4,total}'
+      Name        1st        2nd        3th      Total
+     VBird      23000      24000      25000   72000.00
+    DMTsai      21000      20000      23000   64000.00
+     Bird2      43000      42000      41000  126000.00
+参考文档：https://www.cnblogs.com/lzeffort/p/7242762.html
+http://blog.csdn.net/yockie/article/details/52187059
+grep的查找，sed的编辑，awk在其对数据分析并生成报告！
+cat /etc/passwd |awk  -F ':'  '{print $1}' 如果只是显示/etc/passwd的账户 -F指定域分隔符为’:’
+前后各加一行，打印第1和第7栏数据
+cat /etc/passwd |awk  -F ':'  'BEGIN {print "name,shell"}  {print $1","$7} END {print "blue,/bin/nosh"}'
+ls -l |awk 'BEGIN {size=0;} {size=size+$5;} END{print "[end]size is ", size}' 统计文件夹下文件占用的字节数
+ls -l |awk 'BEGIN {size=0;print "[start]size is ", size} {if($5!=4096){size=size+$5;}} END{print "[end]size is ", size/1024/1024,"M"}'
+awk -F ':' 'BEGIN {count=0;} {name[count] = $1;count++;}; END{for (i = 0; i < NR; i++) print i, name[i]}' /etc/passwd 循环打印用户名	 

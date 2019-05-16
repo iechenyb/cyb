@@ -1,0 +1,15 @@
+,
+ javax.servlet;version="2.4.0",
+ javax.servlet.http;version="2.4.0",
+ org.osgi.framework;version="1.3.0",
+ org.springframework.web.servlet;version="2.5.1",
+ org.springframework.web.servlet.mvc;version="2.5.1"
+ 
+ ,
+ org.eclipse.equinox.jsp.jasper;bundle-version="1.0.100",
+ org.springframework.bundle.osgi.core;bundle-version="1.0.0",
+ org.springframework.bundle.spring.context;bundle-version="2.5.1",
+ org.springframework.bundle.osgi.io;bundle-version="1.0.0",
+ org.springframework.bundle.spring.core;bundle-version="2.5.1",
+ org.springframework.bundle.spring.beans;bundle-version="2.5.1",
+ org.eclipse.osgi;bundle-version="3.4.0"

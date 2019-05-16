@@ -1,0 +1,47 @@
+if command then
+commands
+fi
+
+if command then
+commands
+else
+commands
+fi
+
+if command then
+ command set 1 
+elif command2 then
+ command set 2
+elif command3 then
+ command set 3
+fi 
+
+if test condition then 
+commands
+fi
+
+if [condition] then
+ commands
+fi
+#-eq -ge -gt大于 -le -lt小于 -ne 
+
+
+case $变量名 in
+ 模式1）
+ 命令序列1;;
+ 模式2）
+ 命令序列2;; 
+ *）
+ 默认执行的命令序列;; 
+esac
+case variable in
+ pattern1|pattern2 ) command1;;
+ pattern3) command2;;
+ *) default command3;;
+esac
+
+
+for var in list
+do
+commands
+done

@@ -1,0 +1,14 @@
+λ tasklist|findstr "webstorm"                                                
+                                                                                                         
+λ tasklist|findstr "WebStorm"                                                
+WebStorm.exe                293024 Console                    1  1,197,732 K 
+                                                                                                        
+λ taskkill /F /IM WebStorm.exe                                               
+成功: 已终止进程 "WebStorm.exe"，其 PID 为 293024。                                     
+                                                                                                  
+taskkill /F /IM 进程名称.exe，其中/F 是强行关闭的意思，/IM 就是告诉这条命令，我要用进程名称。
+
+查看端口的进程，得到pid
+netstat -a -n -o 
+根据进程号杀死进程
+taskkill /pid pid -f

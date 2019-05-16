@@ -1,0 +1,63 @@
+level使用参考：http://blog.csdn.net/u012132482/article/details/53501789
+1 将区间进行完整补充
+WITH TB AS
+     (SELECT 'U101' USER_ID, DATE'2016-11-02' START_DT, DATE'2016-11-06' END_DT  FROM DUAL
+      UNION ALL
+      SELECT 'U102' , DATE'2015-06-01', DATE'2015-06-03' FROM DUAL
+      )
+    SELECT TB.USER_ID, TB.START_DT + LEVEL - 1
+    FROM TB
+    CONNECT BY TB.USER_ID = PRIOR TB.USER_ID
+           AND LEVEL <= (TB.END_DT - TB.START_DT + 1)
+           AND PRIOR DBMS_RANDOM.VALUE IS NOT NULL;		   
+2 直接执行看效果
+WITH TB AS
+ (SELECT 'U101' USER_ID, '12345' MOBILE, 3 CNT  FROM DUAL
+    UNION ALL
+    SELECT 'U102' , '33563', 4 FROM DUAL
+ )
+SELECT A.USER_ID,A.MOBILE,B.LV
+    FROM TB A
+    LEFT JOIN (
+                    SELECT TB.USER_ID, LEVEL LV
+                    FROM TB
+                    CONNECT BY TB.USER_ID = PRIOR TB.USER_ID
+                                 AND LEVEL <= CNT
+                                 AND PRIOR DBMS_RANDOM.VALUE IS NOT NULL
+                        ) B
+        ON A.USER_ID = B.USER_ID
+3 生成随机数
+SELECT DBMS_RANDOM.VALUE
+  FROM DUAL 
+  CONNECT BY LEVEL <= 100;
+生成日期
+SELECT SYSDATE - LEVEL
+  FROM DUAL 
+  CONNECT BY LEVEL <= 10
+生成10个数
+SELECT LEVEL
+  FROM DUAL 
+  CONNECT BY LEVEL <= 10	
+4 
+    WITH TB AS (
+      SELECT 'U1' USER_ID, '哈喽,世界' STR FROM DUAL
+        UNION ALL
+        SELECT 'U2', '你好啊,地球' FROM DUAL
+    )
+    SELECT TB.USER_ID, 
+           SUBSTR(STR,LEVEL,1)
+      FROM TB
+    CONNECT BY TB.USER_ID = PRIOR TB.USER_ID
+             AND LEVEL <= LENGTH(STR)
+             AND PRIOR DBMS_RANDOM.VALUE IS NOT NULL;  
+5 列转行
+WITH tb AS
+ (SELECT 'a' rn,         '1,2,3' i_name    FROM dual
+  UNION ALL
+  SELECT 'b',         '4,5,6'    FROM dual)
+  SELECT rn,
+       regexp_substr(i_name, '[^,]+', 1, LEVEL)
+  FROM tb
+CONNECT BY PRIOR dbms_random.value IS NOT NULL
+       AND PRIOR rn = rn
+       AND LEVEL <= length(i_name) - length(REPLACE(i_name, ',', '')) + 1;

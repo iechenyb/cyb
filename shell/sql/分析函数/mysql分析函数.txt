@@ -1,0 +1,31 @@
+/*
+创建一个用户每日收益表，分析函数处理的结果：统计每个人每日累计收入，按照日期增序排列。
+*/
+
+create table income_tl(  
+    user_id int,  
+    create_date date,  
+    income int  
+);  
+  
+insert into income_tl values(1,'2016-03-01',100);  
+insert into income_tl values(1,'2016-03-02',300);  
+insert into income_tl values(1,'2016-03-03',200);  
+insert into income_tl values(1,'2016-03-04',500);  
+insert into income_tl values(1,'2016-03-05',500);  
+  
+insert into income_tl values(2,'2016-03-01',200);  
+insert into income_tl values(2,'2016-03-02',300);  
+insert into income_tl values(2,'2016-03-03',300);  
+insert into income_tl values(2,'2016-03-04',500);  
+insert into income_tl values(2,'2016-03-05',400);  
+  
+select it.user_id,   
+       it.create_date,   
+       it.income,  
+       case  
+          when @preVal = it.user_id then @curVal := @curVal + it.income  
+          when @preVal := it.user_id then @curVal := it.income  
+       end AS sum_income  
+from income_tl it, (select @preVal:=null, @curVal:=null) r  
+order by it.user_id asc, it.create_date asc;  

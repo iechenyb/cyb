@@ -1,0 +1,104 @@
+.判断变量
+
+
+复制代码 代码如下:
+
+
+read -p "input a word :" word
+ if  [ ! -n "$word" ] ;then
+     echo "you have not input a word!"
+ else
+     echo "the word you input is $word"
+ fi
+
+
+
+2.判断输入参数
+
+
+复制代码 代码如下:
+
+
+ #!/bin/bash
+ if [ ! -n "$1" ] ;then
+     echo "you have not input a word!"
+ else
+     echo "the word you input is $1"
+ fi
+
+
+
+以下未验证。
+
+3. 直接通过变量判断
+
+如下所示:得到的结果为: IS NULL
+
+
+复制代码 代码如下:
+
+
+ #!/bin/sh
+ para1=
+ if [ ! $para1 ]; then
+   echo "IS NULL"
+ else
+   echo "NOT NULL"
+ fi 
+
+
+
+4. 使用test判断
+
+得到的结果就是: dmin is not set! 
+
+
+复制代码 代码如下:
+
+
+ #!/bin/sh
+ dmin=
+ if test -z "$dmin"
+ then
+   echo "dmin is not set!"
+ else  
+   echo "dmin is set !"
+ fi
+
+
+
+5. 使用""判断
+
+
+复制代码 代码如下:
+
+
+ #!/bin/sh 
+ dmin=
+ if [ "$dmin" = "" ]
+ then
+   echo "dmin is not set!"
+ else  
+   echo "dmin is set !"
+ fi
+
+
+
+下面是我在某项目中写的一点脚本代码， 用在系统启动时:
+
+
+复制代码 代码如下:
+
+
+ #! /bin/bash
+
+echo "Input Param Is [$1]"
+
+if [ ! -n "$1" ] ;then
+  echo "you have not input a null word!"
+  ./app1;./app12;./app123
+ elif [ $1 -eq 2 ];then
+  ./app12;./app123
+ elif [ $1 -eq 90 ];then
+  echo "yy";
+ fi

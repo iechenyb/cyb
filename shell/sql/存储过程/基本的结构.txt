@@ -1,0 +1,21 @@
+create or replace procedure TEST_BY_CYB(s number,e number) is
+step number;
+num number;
+sql_ varchar2(200);
+xhs varchar2(1000);
+str_cur SYS_REFCURSOR;
+begin
+--xhs:='(1111'||','||'1112'||','||'1113'||')';
+xhs:='(''1111'''||','||'''1112'''||','||'''1113'''||')';
+--select count(*) into num from cybtest where xh in(xhs);
+--dbms_output.put_line('#'||num);
+--sql_:='select count(*) into num from cybtest where xh in('||xhs||')';
+--execute immediate sql_;
+dbms_output.put_line('select count(*) from cybtest where xh in'||xhs);
+open str_cur for 'select count(*) from cybtest where xh in'||xhs;
+ loop
+    fetch str_cur into num;
+     dbms_output.put_line('x='||num);
+     exit when str_cur%notfound;
+ end loop;
+end TEST_BY_CYB;

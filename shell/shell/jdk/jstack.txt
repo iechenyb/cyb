@@ -1,0 +1,5 @@
+top 查看cpu暂用最高的进程
+jstack pid  查看java进程中的线程状态。
+top -Hp pid 查看该进程下各个线程的cpu使用情况
+printf %o 172 查看8进制数
+printf %x 172 查看16进制数

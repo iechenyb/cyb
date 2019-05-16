@@ -1,0 +1,175 @@
+查看锁表进程SQL语句1： 
+select sess.sid, 
+   sess.serial#, 
+   lo.oracle_username, 
+   lo.os_user_name, 
+   ao.object_name, 
+   lo.locked_mode 
+   from v$locked_object lo, 
+   dba_objects ao, 
+   v$session sess 
+where ao.object_id = lo.object_id and lo.session_id = sess.sid; 
+
+查看锁表进程SQL语句2： 
+select * from v$session t1, v$locked_object t2 where t1.sid = t2.SESSION_ID; 
+
+杀掉锁表进程： 
+如有記錄則表示有lock，記錄下SID和serial# ，將記錄的ID替換下面的738,1429，即可解除LOCK 
+alter system kill session '738,1429'; 
+
+查看死锁sql语句
+select sql_text from v$sql where hash_value in 
+(select sql_hash_value from v$session where sid in
+(select session_id from v$locked_object))
+
+用这个可以查：  select s.sid,s.machine,o.object_name,l.oracle_username,l.locked_mode, 'ALTER  SYSTEM  KILL  SESSION  '''||s.sid||',  '||s.serial#||''';'   Command  from  v$locked_object  l,v$session  s,all_objects  o  where  l.session_id=s.sid  and  l.object_id=o.object_id  可以查看哪台机器哪个用户锁了记录, 其中command是用来杀掉锁住记录的session 
+****************************************************************************************************************** 
+SELECT        A.OBJECT_ID,        B.OBJECT_NAME,        A.SESSION_ID,        A.ORACLE_USERNAME,        A.OS_USER_NAME,        A.PROCESS,        A.LOCKED_MODE FROM V$LOCKED_OBJECT A, DBA_OBJECTS B WHERE A.OBJECT_ID = B.OBJECT_ID; 
+SELECT T2.USERNAME, T2.SID, T2.SERIAL#, T2.LOGON_TIME FROM V$LOCKED_OBJECT T1, V$SESSION T2 WHERE T1.SESSION_ID = T2.SID ORDER BY T2.LOGON_TIME; 
+ALTER SYSTEM KILL SESSION 'sid, serial#'; 
+******************************************************************************************************************** 
+session 1: C:\>sqlplus hxg/hxg 
+SQL> select * from scott.t; 
+         A B                    C ---------- -------------------- --------------------        111 aa                   bb        222 hello                world 
+SQL> update scott.t  set b='good' where a=222; 
+已更新 1 行。 
+session 2: C:\>sqlplus scott/tiger 
+SQL> select * from scott.t; 
+         A B                    C ---------- -------------------- --------------------        111 aa                   bb        222 hello                world 
+SQL> update t set b='asdfds' where a=222; 
+挂起。。。。 
+session 3: C:\>sqlplus "system/*** as sysdba" 
+SQL> select sid,serial#,username,status from v$session; 
+ SID    SERIAL# USERNAME                       STATUS ---- ---------- ------------------------------ --------  146         25 SYS                            ACTIVE  147         11 SYS                            INACTIVE  148          2 HXG                            INACTIVE  150          5 SCOTT                          ACTIVE  151          1                                ACTIVE  154          1                                ACTIVE  159          6                                ACTIVE  160          1                                ACTIVE  161          1                                ACTIVE  162          1                                ACTIVE  163          1                                ACTIVE 
+ SID    SERIAL# USERNAME                       STATUS ---- ---------- ------------------------------ --------  164          1                                ACTIVE  165          1                                ACTIVE  166          1                                ACTIVE  167          1                                ACTIVE  168          1                                ACTIVE  169          1                                ACTIVE  170          1                                ACTIVE 
+已选择18行。 
+SQL> alter system kill session '148,2'; 
+系统已更改。 
+SQL> select sid,serial#,username,status from v$session; 
+ SID    SERIAL# USERNAME                       STATUS ---- ---------- ------------------------------ --------  146         25 SYS                            ACTIVE  147         11 SYS                            INACTIVE  148          2 HXG                            KILLED  150          5 SCOTT                          INACTIVE  151          1                                ACTIVE  154          1                                ACTIVE  159          6                                ACTIVE  160          1                                ACTIVE  161          1                                ACTIVE  162          1                                ACTIVE  163          1                                ACTIVE 
+ SID    SERIAL# USERNAME                       STATUS ---- ---------- ------------------------------ --------  164          1                                ACTIVE  165          1                                ACTIVE  166          1                                ACTIVE  167          1                                ACTIVE  168          1                                ACTIVE  169          1                                ACTIVE  170          1                                ACTIVE 
+已选择18行。 
+SQL> 
+
+
+select   V$SESSION.sid,v$session.SERIAL#,v$process.spid,   
+  rtrim(object_type)   object_type,rtrim(owner)   ||   '.'   ||   object_name   object_name,   
+  decode(lmode,       0,   'None',   
+  1,   'Null',   
+  2,   'Row-S',   
+  3,   'Row-X',   
+  4,   'Share',   
+  5,   'S/Row-X',   
+  6,   'Exclusive', 'Unknown')   LockMode,   
+  decode(request,   0,   'None',   
+  1,   'Null',   
+  2,   'Row-S',   
+  3,   'Row-X',   
+  4,   'Share',   
+  5,   'S/Row-X',   
+  6,   'Exclusive',   'Unknown')   RequestMode   
+  ,ctime,   block   b,   
+  v$session.username,MACHINE,MODULE,ACTION,   
+  decode(A.type,   
+  'MR',   'Media   Recovery',   
+  'RT','Redo   Thread',   
+  'UN','User   Name',   
+  'TX',   'Transaction',   
+  'TM',   'DML',   
+  'UL',   'PL/SQL   User   Lock',   
+  'DX',   'Distributed   Xaction',   
+  'CF',   'Control   File',   
+  'IS',   'Instance   State',   
+  'FS',   'File   Set',   
+  'IR',   'Instance   Recovery',   
+  'ST',   'Disk   Space   Transaction',   
+  'TS',   'Temp   Segment',   
+  'IV',   'Library   Cache   Invalida-tion',   
+  'LS',   'Log   Start   or   Switch',   
+  'RW',   'Row   Wait',   
+  'SQ',   'Sequence   Number',   
+  'TE',   'Extend   Table',   
+  'TT',   'Temp   Table',   
+  'Unknown')   LockType   
+  from   (SELECT   *   FROM   V$LOCK)   A,   all_objects,V$SESSION,v$process   
+  where   A.sid   >   6   
+  and   object_name<>'OBJ$'   
+  and   A.id1   =   all_objects.object_id   
+  and   A.sid=v$session.sid   
+  and   v$process.addr=v$session.paddr; 
+
+
+同样也是通过写sql从数据字典里查出来。 
+
+// SELECT-SQL1 
+// 功能:检查被加锁的对象 
+//select obj.OWNER||'.'||obj.OBJECT_NAME as OBJ_NAME, // 对象名称(已经被锁住) 
+//   obj.SUBOBJECT_NAME as SUBOBJ_NAME,     // 子对象名称(已经被锁住) 
+//   obj.OBJECT_ID as OBJ_ID,        // 对象ID 
+//   obj.OBJECT_TYPE as OBJ_TYPE,       // 对象类型 
+//   lock_obj.SESSION_ID as SESSION_ID,     // 会话SESSION_ID 
+//   lock_obj.ORACLE_USERNAME as ORA_USERNAME,  // ORACLE系统用户名称 
+//   lock_obj.OS_USER_NAME as OS_USERNAME,    // 操作系统用户名称 
+//   lock_obj.PROCESS as PROCESS       // 进程编号 
+//from 
+//  ( select * from all_objects where object_id in (select object_id from v$locked_object)) obj, 
+//  v$locked_object lock_obj 
+//where obj.object_id=lock_obj.object_id; 
+
+//// SELECT-SQL2 
+//// 功能:检查被加锁的对象以及加锁的会话信息 
+////  如果需要手工解除锁,请对照要解锁的对象,记下SESSION_ID,SERIAL# 
+
+//// 项,然后运行下面的ALTER-SQL1 
+//select LOCK_INFO.OWNER||'.'||LOCK_INFO.OBJ_NAME as OBJ_NAME, // 对象名称(已经被锁住) 
+//   LOCK_INFO.SUBOBJ_NAME as SUBOBJ_NAME,       // 子对象名称(已经被锁住) 
+//   SESS_INFO.MACHINE as MACHINE,         // 机器名称 
+//   LOCK_INFO.SESSION_ID as SESSION_ID,       // 会话SESSION_ID 
+//   SESS_INFO.SERIAL# as SERIAL#,         // 会话SERIAL# 
+//   LOCK_INFO.ORA_USERNAME as ORA_USERNAME,      // ORACLE系统用户名称 
+//   LOCK_INFO.OS_USERNAME as OS_USERNAME,       // 操作系统用户名称 
+//   LOCK_INFO.PROCESS as PROCESS,         // 进程编号 
+//   LOCK_INFO.OBJ_ID as OBJ_ID,          // 对象ID 
+//   LOCK_INFO.OBJ_TYPE as OBJ_TYPE,         // 对象类型 
+//   SESS_INFO.LOGON_TIME as LOGON_TIME,       // 登录时间 
+//   SESS_INFO.PROGRAM  as PROGRAM,         // 程序名称 
+//   SESS_INFO.STATUS as STATUS,          // 会话状态 
+//   SESS_INFO.LOCKWAIT as LOCKWAIT,         // 等待锁 
+//   SESS_INFO.ACTION as ACTION,          // 动作 
+//   SESS_INFO.CLIENT_INFO as CLIENT_INFO       // 客户信息 
+// 
+//from 
+// ( 
+//  select obj.OWNER as OWNER, 
+//     obj.OBJECT_NAME as OBJ_NAME, 
+//     obj.SUBOBJECT_NAME as SUBOBJ_NAME, 
+//     obj.OBJECT_ID as OBJ_ID, 
+//     obj.OBJECT_TYPE as OBJ_TYPE, 
+//     lock_obj.SESSION_ID as SESSION_ID, 
+//     lock_obj.ORACLE_USERNAME as ORA_USERNAME, 
+//     lock_obj.OS_USER_NAME as OS_USERNAME, 
+//     lock_obj.PROCESS as PROCESS 
+//  from 
+//   ( select * from all_objects where object_id in (select object_id from v$locked_object)) obj, 
+//   v$locked_object lock_obj 
+//  where obj.object_id=lock_obj.object_id 
+// )  LOCK_INFO, 
+// ( 
+//  select SID, 
+//     SERIAL#, 
+//     LOCKWAIT, 
+//     STATUS, 
+//     PROGRAM, 
+//     ACTION, 
+//     CLIENT_INFO, 
+//     LOGON_TIME, 
+//     MACHINE 
+//  from v$session 
+// ) SESS_INFO 
+//where LOCK_INFO.SESSION_ID=SESS_INFO.SID ; 
+//// 看清楚了 下面就可以 杀死它了。 
+// ALTER-SQL1 
+// 功能:杀死会话(SESSION_ID,SERIAL#),可以手工解除锁 
+//    请手工修改SESSION_ID,SERIAL#为相应值 
+// 注意:本功能慎重使用,有一定的破坏性,该SQL可以断开客户机和服务器的连接 
+//ALTER SYSTEM KILL SESSION 'SESSION_ID,SERIAL#';

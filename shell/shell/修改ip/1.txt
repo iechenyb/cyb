@@ -1,0 +1,14 @@
+1 修复网络工具  journalctl -ex 
+dmesg | grep eth   查看想要的网卡信息
+/etc/init.d/networking restart 重启网络服务
+vi /etc/network/interfaces 修改ip和网关
+ip route show   查询网关信息
+vim /etc/resolv.conf 配置网关
+ubuntu 重启网卡方法
+查看网卡信息： ifconfig
+设定一个网卡IP：ifconfig eth1 192.168.1.10 netmask 255.255.255.0
+重启网卡使设定生效：sudo /etc/init.d/networking restart
+用ubuntu的系统——>系统管理——>网络的网络设置
+关闭网卡 ifdown eth0
+开启网卡 ifup eth0
+重启网卡，优点是可以指定网卡，不影响其他网络接口

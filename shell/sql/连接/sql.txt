@@ -1,0 +1,5 @@
+/*表情况 3年级没有班， 3班的四年级不存在*/
+select * from nj LEFT JOIN gradclass on nj.id=gradclass.njid ;/*查看所有年级有哪些班级，3年级没有班，一样被查询出来！*/
+select * from gradclass LEFT JOIN nj on nj.id=gradclass.njid ;/*查看所有班级对应哪些年级，3班没有年级，一样被查询出来！*/
+select * from nj right JOIN gradclass on nj.id=gradclass.njid ;/*查看所有班级对应哪些年级，3年级没有年级，一样被查询出来！*/
+select * from gradclass right JOIN nj on nj.id=gradclass.njid ;/*查看所有年级有哪些班级，3年级没有班，一样被查询出来！*/

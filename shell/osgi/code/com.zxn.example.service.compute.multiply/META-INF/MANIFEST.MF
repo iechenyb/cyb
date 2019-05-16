@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Multiply Plug-in
+Bundle-SymbolicName: com.zxn.example.service.compute.multiply;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Vendor: ZXN
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: com.zxn.example.service.compute

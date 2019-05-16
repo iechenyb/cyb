@@ -1,0 +1,131 @@
+创建一个通用的表
+create table tb_cyb_partition_common  
+(  
+  account varchar2(10),  --资金账号 创建hash分区使用
+  seasontype varchar2(20), --学生信息
+  record_Date long,--创建范围分区使用
+  user_type int--创建列表分区使用
+)
+--具体的分区表
+create table tb_cyb_partition_hash|list|range|range_hash|rang_list  
+(  
+  account varchar2(10),  --资金账号 创建hash分区使用
+  seasontype varchar2(20), --学生信息
+  record_Date long,--创建范围分区使用
+  user_type int--创建列表分区使用
+) 
+
+PARTITION BY  HASH (account)
+( 
+  PARTITION PART01 , 
+  PARTITION PART02 , 
+  PARTITION PART03  
+)
+as
+select * from tb_cyb_partition_common;
+--初始化sql
+insert into table tb_cyb_partition_common values('800001','two',20171023,1);
+insert into table tb_cyb_partition_common values('800002','three',20170923,2);
+insert into table tb_cyb_partition_common values('800003','five',20170823,3);
+insert into table tb_cyb_partition_common values('800004','ten',20170723,4);
+--创建hash分区 四个区域
+PARTITION BY  HASH (account) PARTITIONS 4
+STORE IN (表空间1,表空间2,表空间3,表空间4);
+--创建list分区
+PARTITION  BY  LIST (SEASONTYPE) 
+( 
+    PARTITION  list-part1 VALUES ('two','three'),
+    PARTITION  list-part2 VALUES ('five')
+);
+--创建范围分区
+PARTITION BY RANGE (user_type) 
+( 
+    PARTITION CUS_PART1 VALUES LESS THAN (3) , 
+    PARTITION CUS_PART2 VALUES LESS THAN (4) 
+);
+PARTITION BY RANGE (record_Date) 
+(
+  PARTITION ORD_ACT_PART01 VALUES LESS THAN (20170823),
+  PARTITION ORD_ACT_PART02 VALUES LESS THAN (20170923),
+  PARTITION ORD_ACT_PART03 VALUES LESS THAN (20171023),
+  PARTITION ORD_ACT_PART04 VALUES LESS THAN (MAXVALUE) 
+);
+--范围分区+hash
+partition by range(record_date)
+subpartition by hash(account)  
+subpartitions 4 
+--store in (cyb_space01,cyb_space02,cyb_space03,cyb_space04) 
+( 
+     partition part_01 values less than(20170823), 
+     partition part_02 values less than(20171023),
+     partition part_03 values less than(maxvalue) 
+);
+--范围分区+列表
+PARTITION BY RANGE(record_date) SUBPARTITION BY LIST (seasontype)
+(
+   PARTITION P1 VALUES LESS THAN(20170823) 
+          ( 
+              SUBPARTITION P1SUB1 VALUES ('twoyear','threeyear') , 
+              SUBPARTITION P1SUB2 VALUES ('tenyear')  
+          ), 
+   PARTITION P2 VALUES LESS THAN (20171023) 
+          ( 
+              SUBPARTITION P2SUB1 VALUES ('twoyear','threeyear') , 
+              SUBPARTITION P2SUB2 VALUES ('tenyear')  
+          ) 
+)
+
+查询条件记得都大写，特别是表名，否则报错。
+--显示数据库所有分区表的信息：
+select * from DBA_PART_TABLES
+ 
+--显示当前用户可访问的所有分区表信息:
+select * from ALL_PART_TABLES
+ 
+--显示当前用户所有分区表的信息：
+select * from USER_PART_TABLES
+ 
+--显示表分区信息 显示数据库所有分区表的详细分区信息：
+select * from DBA_TAB_PARTITIONS
+ 
+--显示当前用户可访问的所有分区表的详细分区信息：
+select * from ALL_TAB_PARTITIONS
+ 
+--显示当前用户所有分区表的详细分区信息：
+select * from USER_TAB_PARTITIONS
+ 
+--显示子分区信息 显示数据库所有组合分区表的子分区信息：
+select * from DBA_TAB_SUBPARTITIONS
+ 
+--显示当前用户可访问的所有组合分区表的子分区信息：
+select * from ALL_TAB_SUBPARTITIONS
+ 
+--显示当前用户所有组合分区表的子分区信息：
+select * from USER_TAB_SUBPARTITIONS
+ 
+--显示分区列 显示数据库所有分区表的分区列信息：
+select * from DBA_PART_KEY_COLUMNS
+ 
+--显示当前用户可访问的所有分区表的分区列信息：
+select * from ALL_PART_KEY_COLUMNS
+ 
+--显示当前用户所有分区表的分区列信息：
+select * from USER_PART_KEY_COLUMNS
+ 
+--显示子分区列 显示数据库所有分区表的子分区列信息：
+select * from DBA_SUBPART_KEY_COLUMNS
+ 
+--显示当前用户可访问的所有分区表的子分区列信息：
+select * from ALL_SUBPART_KEY_COLUMNS
+ 
+--显示当前用户所有分区表的子分区列信息：
+select * from USER_SUBPART_KEY_COLUMNS
+ 
+--怎样查询出oracle数据库中所有的的分区表
+select * from user_tables a where a.partitioned='YES'
+ 
+--删除一个表的数据是
+truncate table table_name;
+ 
+--删除分区表一个分区的数据是
+alter table table_name truncate partition p5;

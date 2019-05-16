@@ -1,0 +1,57 @@
+#!/bin/bash
+
+#
+# 一个菜单驱动的展示系统信息的脚本
+#
+
+# 展示结果的延迟时间（单位/秒）
+DELAY=3
+
+while [[ "$REPLY" != "0" ]]; do
+    clear
+    cat <<EOF
+----------------------------
+请选择：
+    1.显示系统信息
+    2.显示磁盘使用情况
+    3.显示用户空间使用情况
+    0.退出
+----------------------------
+EOF
+    read -p "请输入你的选择[0-3]:"
+    if [[ $REPLY =~ ^[0-3]$ ]];then
+
+        # 显示系统使用情况
+        if [[ "$REPLY" = "1" ]];then
+            echo
+            echo "主机名：${HOSTNAME}"
+            uptime
+            sleep $DELAY
+        fi
+
+        # 显示磁盘使用情况
+        if [[ "$REPLY" = "2" ]];then
+            df -h
+            sleep $DELAY
+        fi
+
+        # 显示用户空间使用情况
+        if [[ "$REPLY" = "3" ]];then
+            # 判定有效用户是否为root
+            if [[ $(id -u) -eq 0 ]];then
+                echo
+                echo "(所有用户)用户空间使用情况："
+                du -sh /home/*
+            else
+                echo
+                echo "(${USER})用户空间使用情况："
+                du -sh $HOME
+            fi
+            sleep $DELAY
+        fi
+    else
+        echo "非法输入"
+        sleep $DELAY
+    fi
+done
+echo "脚本退出"

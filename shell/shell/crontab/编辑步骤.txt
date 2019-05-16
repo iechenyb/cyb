@@ -1,0 +1,13 @@
+crontab -e  编辑系统的定时任务
+crontab -l查看定时任务
+*/5 * * * * /chenyb/app/cron.sh 每5秒执行一次
+0 20 * * * /chenyb/app/my.sh 每天20点执行
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# | .------------- hour (0 - 23)
+# | | .---------- day of month (1 - 31)
+# | | | .------- month (1 - 12) OR jan,feb,mar,apr ...
+# | | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# | | | | |
+# * * * * * user-name command to be executed

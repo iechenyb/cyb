@@ -1,0 +1,28 @@
+ps -ef|grep java 查看java进程信息
+jmap -heap 11830 打印heap的概要信息，GC使用的算法，heap的配置及使用情况，可以用此来判断内存目前的使用情况以及垃圾回收情况
+jmap -dump:live,format=b,file=dump.hprof 24971 dump堆到文件,format指定输出格式，live指明是活着的对象,file指定文件名，工具JProfiler打开。
+jmap -finalizerinfo 11830 打印待回收的对象信息
+root@iZ0z00b09p3thwZ:/chenyb# jmap -histo:live 11830 |grep org.*|more  打印堆的对象统计，包括对象数、内存大小等等。jmap -histo:live 这个命令执行，JVM会先触发gc，然后再统计信息
+  11:         20000         480000  org.apache.tomcat.util.bcel.classfile.ConstantUtf8
+  13:          8088         388224  org.apache.catalina.loader.ResourceEntry
+  23:          2541         121968  org.apache.tomcat.util.digester.CallMethodRule
+  27:          2751          88032  com.sun.org.apache.xerces.internal.xni.QName
+  34:           917          51352  org.apache.naming.resources.CacheEntry
+  35:          1050          50400  org.apache.tomcat.util.buf.ByteChunk
+  37:           873          41904  org.apache.tomcat.util.buf.MessageBytes
+  40:           840          40320  org.apache.tomcat.util.modeler.AttributeInfo
+jmap -histo:live 24971 | grep com.yuhuo 查询类名包含com.yuhuo的信息
+jmap -histo:live 24971 | grep com.yuhuo > histo.txt 保存信息到histo.txt文件
+BaseType Character	Type	Interpretation  类型简称
+B	byte	signed byte
+C	char	Unicode character
+D	double	double-precision floating-point value
+F	float	single-precision floating-point value
+I	int	integer
+J	long	long integer
+L;	reference	an instance of class
+S	short	signed short
+Z	boolean	true or false
+[	reference	one array dimension，[I表示int[]
+jmap -permstat 24971 
+打印Java堆内存的永久区的类加载器的智能统计信息。对于每个类加载器而言，它的名称、活跃度、地址、父类加载器、它所加载的类的数量和大小都会被打印。此外，包含的字符串数量和大小也会被打印

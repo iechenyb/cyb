@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Web Plug-in
+Bundle-SymbolicName: com.zxn.example.web;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Vendor: ZXN
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: com.zxn.example.service.compute
+Require-Bundle: org.eclipse.osgi;bundle-version="3.7.0",org.eclipse.equinox.jsp.jasper;bundle-version="1.0.400"
+Export-Package: com.zxn.example.web

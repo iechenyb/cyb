@@ -1,0 +1,22 @@
+今天
+root@iZ0z00b09p3thwZ:/chenyb/shell/log# date +%Y-%m-%d
+2018-02-02
+明天
+root@iZ0z00b09p3thwZ:/chenyb/shell/log# date -d next-day +%Y-%m-%d
+2018-02-03
+获取上个月日期
+root@iZ0z00b09p3thwZ:/chenyb/shell/log# date -d last-month +%Y%m%d
+20180102
+获取下一年
+root@iZ0z00b09p3thwZ:/chenyb/shell/log# date -d next-year +%Y
+2019
+获取第n天前
+root@iZ0z00b09p3thwZ:/chenyb/shell/log# date -d '30 days ago' +%Y%m
+201801
+root@iZ0z00b09p3thwZ:/chenyb/shell/log# date -d '30 days ago' +%Y%m%d
+20180103
+root@iZ0z00b09p3thwZ:/chenyb/shell/log# date -d '20 days ago' +%Y%m%d
+20180113
+root@iZ0z00b09p3thwZ:/chenyb/shell/log# date -d '1 days ago' +%Y%m%d
+20180201
+root@iZ0z00b09p3thwZ:/chenyb/shell/log# 

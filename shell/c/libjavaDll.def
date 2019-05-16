@@ -1,0 +1,8 @@
+; dlltool --base-file C:\Users\DHUser\AppData\Local\Temp\cca08992.base --output-exp javaDll.exp --dllname javaDll.dll --output-def libjavaDll.def --no-export-all-symbols --add-stdcall-alias --exclude-symbol=DllMainCRTStartup --def C:\Users\DHUser\AppData\Local\Temp\cca08992.def --output-lib libjavaDll.a
+EXPORTS
+;	HelloWorld1(char*)
+	_Z11HelloWorld1Pc @ 1
+;	HelloWorld2(char*)
+	_Z11HelloWorld2Pc @ 2
+;	HelloWorld()
+	_Z10HelloWorldv @ 3

@@ -1,0 +1,8 @@
+0、查看用户表、索引、分区表占用空间
+select segment_name, sum(bytes)/1024/1024 Mbytese from user_segments group by segment_name;
+1、表占用空间
+select segment_name, sum(bytes)/1024/1024 Mbytese from user_segments where segment_type='TABLE' group by segment_name;
+2、索引占用空间
+select segment_name ,sum(bytes)/1024/1024 from user_segments where segment_type ='INDEX' group by segment_name;
+3、分区表TABLE PARTITION占用空间
+select segment_name,sum(bytes)/1024/1024 Mbytes from user_segments where segment_type='TABLE PARTITION' group by segment_name;

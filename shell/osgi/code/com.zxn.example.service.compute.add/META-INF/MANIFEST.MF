@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Service Plug-in
+Bundle-SymbolicName: com.zxn.example.service.compute.add;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Vendor: ZXN
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.osgi.framework;version="1.3.0"
+Require-Bundle: com.zxn.example.service.compute;bundle-version="1.0.0"
+Export-Package: com.zxn.example.service.compute.add

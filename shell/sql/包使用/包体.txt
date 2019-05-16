@@ -1,0 +1,149 @@
+create or replace package body PACK_PUB is
+
+--写日志
+
+procedure WRITE_EXECUTE_LOG(procname varchar2,sqlcode_ number,sqlerrm_ varchar2,msg varchar2,ywrq varchar2)
+
+is 
+
+begin
+
+  insert into T_VA_KHFX_PROCE_LOG (Record_Date,Proc_Func_Name,Sqlcode_,Sqlerrm_,errmsg,record_ywrq)
+
+  values
+
+  (sysdate,procname,sqlcode_,Sqlerrm_,msg,ywrq);
+
+  commit;
+
+end WRITE_EXECUTE_LOG;
+
+--匹配子字符串  target_varchar2 必须满足'x1,x2,x3,'格式 
+
+--本函数的作用是从'x1,x2,x3'中匹配x1
+
+function FIND_ELEMENT_FROM_VARCHAR2(soure_varchar2  in varchar2,target_varchar2 in varchar2)
+
+return number is
+
+  Cursor FIND_ELEMENT_CURSOR is
+
+    SELECT REGEXP_SUBSTR(soure_varchar2, '[^,]+', 1, LEVEL, 'i') AS STR
+
+      FROM DUAL
+
+    CONNECT BY LEVEL <=
+
+               LENGTH(soure_varchar2) -
+
+               LENGTH(REGEXP_REPLACE(soure_varchar2, ',', '')) + 1;
+
+  element varchar2(50);
+
+  rs      number(1);
+
+  begin
+
+    rs := 0; --是否匹配  0 不匹配 1 匹配成功
+
+    open FIND_ELEMENT_CURSOR;
+
+    loop
+
+      FETCH FIND_ELEMENT_CURSOR
+
+        INTO element;
+
+      if element IS NOT NULL or upper(element) <> 'NULL' THEN
+
+        if target_varchar2 = element then
+
+          rs := 1; --发现匹配元素，跳出循环 
+
+          EXIT;
+
+        end if;
+
+      end if;
+
+      exit when FIND_ELEMENT_CURSOR%notfound;
+
+    end loop;
+
+    return rs;
+
+end FIND_ELEMENT_FROM_VARCHAR2;
+
+
+
+--计算两个日期之间的工作日数
+
+function CAL_NUMBER_OF_TRADE_DAYS(begin_date varchar2, end_date varchar2)
+
+    return number is
+
+    step             number(10); --循环临时变量
+
+    rs               number(10); --返回结果
+
+    total_number     number(10); --遍历总记录数
+
+    date_local       varchar2(10); --20150101 八位
+
+    holidays_local   varchar2(1000); --节假日日期1，日期2，...
+
+    curr_day_of_week varchar2(1); --一周中的周几  用于判断是否周六周日
+
+  begin
+
+    rs               := 0; --工作日数
+
+    total_number     := 0; --两个日期间的间隔数
+
+    date_local       := ''; --临时日期
+
+    holidays_local   := ''; --法定节假日
+
+    curr_day_of_week := '0'; --一周中的周几，1代表周一，2代表周二，一次类推
+
+    if (begin_date IS NOT NULL OR NVL(begin_date, 0) <> 0) and
+
+       (end_date IS NOT NULL OR NVL(end_date, 0) <> 0) then
+
+      select (to_date(end_date, 'yyyymmdd') -  to_date(begin_date, 'yyyymmdd')) into total_number from dual;
+
+      select value  into holidays_local   from t_va_khfx_config where name = 'holidays'; --定义成全局的需要--
+
+      for step in 1 .. total_number loop
+
+        select to_char(to_date(begin_date, 'yyyymmdd') + step, 'yyyymmdd')
+
+          into date_local
+
+          from dual; --获取当前日期
+
+          select to_char(to_date(begin_date, 'yyyymmdd')+step, 'd')
+
+          into curr_day_of_week
+
+          from dual; --判断是否周六或者周日
+
+        if curr_day_of_week <> '1' and curr_day_of_week <> '7' then
+
+          if FIND_ELEMENT_FROM_VARCHAR2(holidays_local, trim(date_local)) = 0 then
+
+            rs := rs + 1; --累加工作日
+
+          end if;
+
+        end if;
+
+      end loop;
+
+    end if;
+
+    return rs;
+
+  end CAL_NUMBER_OF_TRADE_DAYS;
+
+end PACK_PUB;

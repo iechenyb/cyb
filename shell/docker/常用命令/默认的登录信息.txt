@@ -1,0 +1,2 @@
+docker	tcuser	ssh
+root	command：sudo -i (docker用户下执行)

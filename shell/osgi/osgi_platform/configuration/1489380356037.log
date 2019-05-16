@@ -1,0 +1,12 @@
+!SESSION 2017-03-13 12:45:55.810 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_80
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Command-line arguments:  -console
+
+!ENTRY org.eclipse.osgi 4 0 2017-03-13 12:45:56.347
+!MESSAGE Bundle ./plugins/com.cyb.helloworld.client_1.0.0.201703100848.jar@2:stop not found.
+
+!ENTRY org.eclipse.osgi 4 0 2017-03-13 12:45:56.347
+!MESSAGE Bundle ./plugins/com.cyb.helloworld_1.0.0.201703100848.jar@1:stop not found.

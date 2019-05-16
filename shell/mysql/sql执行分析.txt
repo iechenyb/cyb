@@ -1,0 +1,19 @@
+1查看 profiling 是否开启
+0 代表关闭分析功能
+select @@profiling;
+2 打开分析功能
+set profiling=1;
+3查看 SQL 的执行时间
+explain select * from web_eye_result where id=1;
+explain select * from ip;
+  1	SIMPLE	web_eye_result		const	PRIMARY	PRIMARY	8	const	1	100	
++----+-------------+-------+------+---------------+------+---------+------+------+-------+
+| id | select_type | table | type | possible_keys | key  | key_len | ref  | rows | Extra |
++----+-------------+-------+------+---------------+------+---------+------+------+-------+
+|  1 | SIMPLE      | ip    | ALL  | NULL          | NULL | NULL    | NULL |  400 | NULL  |
++----+-------------+-------+------+---------------+------+---------+------+------+-------+
+select_type	table	type	possible_keys	key	key_len	rows	Extra
+表示查询的类型	输出结果集的表	表示表的连接类型	表示查询时，可能使用的索引	表示实际使用的索引	索引字段的长度	扫描出的行数(估算的行数)	执行情况的描述和说明
+https://www.cnblogs.com/xueweihan/p/6864401.html
+查看autocommit：select @@autocommit；
+设置autocommit：set autocommit=0;

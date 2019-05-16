@@ -1,0 +1,61 @@
+1.首先建立测试(普通)表，并插入测试数据：
+create table tb_study_redefine_partition(id number,code varchar2(5),identifier varchar2(20));
+insert into tb_study_redefine_partition values(1,'01','01-01-0001-000001');
+insert into tb_study_redefine_partition values(2,'02','02-01-0001-000001');
+insert into tb_study_redefine_partition values(3,'03','03-01-0001-000001');
+insert into tb_study_redefine_partition values(4,'04','04-01-0001-000001');
+insert into tb_study_redefine_partition values(5,'05','05-01-0001-000001');
+insert into tb_study_redefine_partition values(6,'06','06-01-0001-000001');
+insert into tb_study_redefine_partition values(7,'07','07-01-0001-000001');
+commit;
+alter table tb_study_redefine_partition add constraint pk_test_id primary key (id);
+2.检查下这张表是否可以在线重定义，无报错表示可以，报错会给出错误信息：
+--管理员权限执行begin
+SQL> exec dbms_redefinition.can_redef_table('orcl', 'tb_study_redefine_partition');
+PL/SQL procedure successfully completed
+–管理员权限执行end
+3.建立在线重定义需要的中间表，表结构就是要将原测试表重定义成什么样子，这里建立的是按全宗号分区的分区表：
+create table t_temp(
+id number,
+code varchar2(5),
+identifier varchar2(20)) 
+partition by range(id)(  
+          partition TAB_PARTOTION_01 values less than (2),  
+          partition TAB_PARTOTION_02 values less than (3),  
+          partition TAB_PARTOTION_03 values less than (4),  
+          partition TAB_PARTOTION_04 values less than (5),  
+          partition TAB_PARTOTION_OTHER values less THAN (MAXVALUE)  
+);
+alter table t_temp add constraint pk_temp_id2 primary key (id);
+4.启动在线重定义：
+--管理员权限执行sql命令行执行
+exec dbms_redefinition.start_redef_table('orcl', 'tb_study_redefine_partition', 't_temp');
+--管理员权限执行sql命令行执行
+这里dbms_redefinition包的start_redef_table模块有3个参数，分别是SCHEMA名字、原表的名字、中间表的名字。
+5.启动在线重定义后，中间表就可以查到原表的数据。
+select * from t_temp;
+6.由于在生成系统中，在线重定义的过程中原数据表可能会发生数据改变，向原表中插入数据模拟数据改变。
+insert into tb_study_redefine_partition values(5,'05','05-01-0001-000001');
+commit;
+7.此时原表被修改，中间表并没有更新。
+select * from tb_study_redefine_partition;
+select * from t_temp;
+8.使用dbms_redefinition包的sync_interim_table模块刷新数据后，中间表也可以看到数据更改
+--管理员权限执行sql命令行执行,同步两边数据
+exec dbms_redefinition.sync_interim_table('orcl', 'tb_study_redefine_partition', 't_temp');
+--管理员权限执行sql命令行执行
+查询同步后的两边数据是否一致：
+select * from tb_study_redefine_partition;
+select * from t_temp;
+9.结束在线重定义
+--管理员权限执行sql命令行执行，结束重定义
+exec dbms_redefinition.finish_redef_table('orcl', 'tb_study_redefine_partition', 't_temp');
+--管理员权限执行sql命令行执行
+10.验证数据
+select * from tb_study_redefine_partition;
+select * from t_temp;
+11.查看各分区数据是否正确
+select table_name, partition_name from user_tab_partitions where table_name = 'tb_study_redefine_partition';
+select * from tb_study_redefine_partition partition(TAB_PARTOTION_01);
+12.在线重定义后，中间表已经没有意义，删掉中间表
+drop table t_temp purge; 

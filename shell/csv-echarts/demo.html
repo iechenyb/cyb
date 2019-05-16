@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<meta charset="utf-8"/>
+<input type="file" name="csvfile" />
+<input type="button" onclick="csv()" value="JS转换"/>
+<div id="resTbl"></div>
+<script src="./lib/jquery.js"></script>
+<script src="./lib/papaparse.js"></script>
+<script src="./lib/jschardet.js"></script>
+<!--[if lte IE 9]>
+	<script src="./lib/base64.js"></script>
+<![endif]-->
+ <script src="./lib/echarts.min.js"></script>
+<script src="csv2arr.js"></script>
+<script>
+
+function csv(){
+	$("input[name=csvfile]").csv2arr(function(arr){
+	    var x=new Array();
+		var y=new Array();
+		for(var i=0;i<arr.length;i++){
+		  x.push(arr[i][0]);
+		  y.push(arr[i][1]);
+		}
+		/*console.log( x+"---"+y );
+		//something to do here
+		var tblStr = "<table border='1'>";
+		$.each( arr, function(i, line){
+			tblStr += "<tr>";
+			$.each( line, function(i, cell){
+				tblStr += "<td>"+cell+"</td>";
+			});
+			tblStr += "</tr>";
+		});
+		$("#resTbl").html( tblStr );*/
+		show(x,y);
+	});
+	function show(x,y){
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: 'ECharts 入门示例'
+            },
+            tooltip: {},
+            legend: {
+                data:['销量']
+            },
+            xAxis: {
+                data: x
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'line',
+                data: y
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+   }
+}
+</script>
+<div id="main" style="width: 600px;height:400px;"></div>
+</html>

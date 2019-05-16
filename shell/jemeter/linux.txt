@@ -1,0 +1,1 @@
+./jmeter -n -t test/vas.jmx -l test/log/vaslog.jtl

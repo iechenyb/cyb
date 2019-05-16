@@ -1,0 +1,4 @@
+mount -t aufs -o br=/usr/study/shell=ro:/usr/study/tar=rw none /usr/study/aufs
+将shell目录和tar目录都挂载到aufs目录上。
+如果相同的文件名或者文件，如何处理？
+umount aufs 卸载，需要进入aufs的上一级目录

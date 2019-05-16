@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:osgi="http://www.springframework.org/schema/osgi"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd">
+
+    <!-- *************************** -->
+    <!-- External Service References -->
+    <!-- *************************** -->
+    <osgi:reference id="ComputeServiceRef" interface="com.zxn.example.service.compute.Compute" />
+ 
+     <bean id="ComputeServiceRef" 
+    	  class="com.zxn.example.web.ComputeServiceRef"
+    	  scope="singleton">
+    	<property name="computeService" ref="ComputeServiceRef"></property>
+    </bean>
+ 
+    <!-- *************** -->
+    <!-- HTTP Dispatcher -->
+    <!-- *************** -->
+    <bean name="webConfig"
+          class="com.zxn.example.web.HTTPContextRegistry" 
+          init-method="init">
+        <property name="webRoot" value="/WebContent"></property>
+        <property name="alias" value="/example"></property>
+        <property name="controllerAliasPattern" value="/example/*.do" />
+        <property name="contextConfigFile" value="WEB-INF/computeWeb-Dispatcher.xml" />
+        <property name="dispatcherID" value="computeDispatcher"></property>
+    </bean>
+
+</beans>

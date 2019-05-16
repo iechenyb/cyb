@@ -1,0 +1,5 @@
+1 双击bat或者sh文件
+2 在浏览器中访问http://远端ip:8082/ 进入H2数据库控制后台。
+3 通过内存模型访问
+内存模式  jdbcurl：jdbc:h2/user/vasuser/data/数据库名无后缀
+tcp模式  jdbcurl:jdbc:h2:tcp://192.168.108.221:19200/user/vasuser/data/数据库名称（不能正常发现数据库的位置）

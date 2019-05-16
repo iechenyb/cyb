@@ -1,0 +1,56 @@
+1 sum()结合over()
+　　select a.empno as 员工编号,a.ename as 员工姓名,a.deptno as 部门编号,a.sal as 薪酬
+　　,sum(sal) over (partition by deptno) 按部门求薪酬总和
+　　from scott.emp a;
+　　此段sql 执行的结果为：
+　　部门编号 员工姓名 员工编码 薪酬 按部门求薪酬总和
+　　7934 MILLER 10 1300 8750
+　　7782 CLARK 10 2450 8750
+　　7839 KING 10 5000 8750
+　　7369 SMITH 20 800 10875
+　　7876 ADAMS 20 1100 10875
+　　7566 JONES 20 2975 10875
+　　7788 SCOTT 20 3000 10875
+　　7902 FORD 20 3000 10875
+　　7900 JAMES 30 950 9400
+　　7654 MARTIN 30 1250 9400
+　　7521 WARD 30 1250 9400
+　　7844 TURNER 30 1500 9400
+　　7499 ALLEN 30 1600 9400
+　　7698 BLAKE 30 2850 9400
+2 按照多列查询，按照部门人员进行排序，查询每个部门的累计发放薪水   
+select deptno,ename,sal,
+sum(sal) over(partition by deptno order by ename) he
+from emp;   
+结果:   
+10  CLARK   2450    2450   
+10  KING    5000    7450   
+10  MILLER  1300    8750   
+20  ADAMS   1100    1100   
+20  FORD    3000    4100   
+20  JONES   2975    7075   
+20  SCOTT   3000    10075   
+20  SMITH   800 10875   
+30  ALLEN   1600    1600   
+30  BLAKE   2850    4450 
+3 rank()结合over()
+　　rank函数是分级函数，这个函数必须与 over 函数使用，否则会报一个"缺少窗口函数的错"。我测试sql如下：
+　　select a.empno as 员工编号,a.sal as 薪资,a.job as 岗位,
+　　rank() OVER(partition by a.job ORDER BY a.sal desc) as 岗位薪资等级
+　　from scott.emp a;
+　　查询结果为:
+　　员工编号 薪资 岗位 等级
+　　7902 3000 ANALYST 1
+　　7788 3000 ANALYST 1
+　　7934 1300 CLERK 1
+　　7876 1100 CLERK 2
+　　7900 950 CLERK 3
+　　7369 800 CLERK 4
+　　7566 2975 MANAGER 1
+　　7698 2850 MANAGER 2
+　　7782 2450 MANAGER 3
+　　7839 5000 PRESIDENT 1
+　　7499 1600 SALESMAN 1
+　　7844 1500 SALESMAN 2
+　　7654 1250 SALESMAN 3
+　　7521 1250 SALESMAN 3
